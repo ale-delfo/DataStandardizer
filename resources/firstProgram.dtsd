@@ -1,6 +1,7 @@
-Source: "Alessandro" (json)
-Destination: "Delle Foglie" (csv)
+Source: /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/titanic.csv (csv)
+Destination: output/ (parquet)
 
 Deduplicate(ciao);
-RenameColumn(ID -> BlaBla);
+RenameColumn(Name -> Nomiiii);
 Cast(ID)(INT -> STRING);
+CreateLiteral(CiaoCiao)("hey boy");

@@ -26,23 +26,28 @@ start
 	
 source_definition
 	:
-	  SOURCE CL source=STRING LP format=FILE_FORMAT RP
-	  {self.standardizer.setSource($source.text)}
+	  SOURCE CL source=PATH LP format=FILE_FORMAT RP
+	  {self.standardizer.setSource($source.text, $format.text)}
 	;
 
 destination_definition
 	:	
-	  DESTINATION CL destination=STRING LP format=FILE_FORMAT RP
-	  {print(f'Found Source in path {$destination.text}, the file format specified is {$format.text}')}
+	  DESTINATION CL destination=PATH LP format=FILE_FORMAT RP
+	  {self.standardizer.setDestination($destination.text, $format.text)}
+
 	;
 	
 action 	:
 		rename_action |
 		cast_action |
 		create_literal_action |
-		deduplicate_action	
+		deduplicate_action |
+		normalize_action
+		
 	; 
 	
+
+
 
 cast_action
 	:	
@@ -51,7 +56,8 @@ cast_action
 	
 create_literal_action
 	:	
-	CREATE_LITERAL LP ID RP LP STRING RP
+	CREATE_LITERAL LP x=ID RP LP y=STRING RP
+	{self.standardizer.addAction(self.standardizer.createLiteral,$x.text,$y.text)}
 	;
 	
 deduplicate_action
@@ -62,7 +68,13 @@ deduplicate_action
 
 rename_action
 	:	
-	RENAME_COLUMN LP ID RIGHT_ARROW ID RP
+	RENAME_COLUMN LP x=ID RIGHT_ARROW y=ID RP
+	{self.standardizer.addAction(self.standardizer.renameColumn,$x.text,$y.text)}
+	;
+	
+normalize_action
+	:	NORMALIZE_COLUMNS
+	{self.standardizer.normalizeColumns=True}
 	;
 
 // Specifica del lexer
@@ -86,6 +98,11 @@ CREATE_LITERAL
 	
 DEDUPLICATE
 	:	'Deduplicate';
+	
+NORMALIZE_COLUMNS
+	:	
+	'Normalize'
+	;
 
 // Specifica del lexer
 CL	:	':';
@@ -125,3 +142,4 @@ STRING 	:	'"' ( options {greedy=false;} : . )* '"' ;
 
 ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*  ;
 
+PATH  :	('a'..'z'|'A'..'Z'|'_'|'/'|'.'|'-') ('a'..'z'|'A'..'Z'|'0'..'9'|'_'|'/'|'.'|'-')*  ;
