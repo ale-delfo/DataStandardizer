@@ -17,7 +17,7 @@ options {
 
 
 // Specifica del parser
-start 
+startRule
 	:	source_definition
 		destination_definition
 		(action SC)*
@@ -26,13 +26,13 @@ start
 	
 source_definition
 	:
-	  SOURCE CL source=PATH LP format=FILE_FORMAT RP
+	  SOURCE CL source=TEXT LP format=FILE_FORMAT RP
 	  {self.standardizer.setSource($source.text, $format.text)}
 	;
 
 destination_definition
 	:	
-	  DESTINATION CL destination=PATH LP format=FILE_FORMAT RP
+	  DESTINATION CL destination=TEXT LP format=FILE_FORMAT RP
 	  {self.standardizer.setDestination($destination.text, $format.text)}
 
 	;
@@ -51,24 +51,24 @@ action 	:
 
 cast_action
 	:	
-	CAST_COLUMN LP ID RP LP TYPE RIGHT_ARROW TYPE RP
+	CAST_COLUMN LP (TEXT|COLUMN_SQUARED) RP LP TYPE RIGHT_ARROW TYPE RP
 	;
 	
 create_literal_action
 	:	
-	CREATE_LITERAL LP x=ID RP LP y=STRING RP
+	CREATE_LITERAL LP x=(TEXT|COLUMN_SQUARED) RP LP y=STRING RP
 	{self.standardizer.addAction(self.standardizer.createLiteral,$x.text,$y.text)}
 	;
 	
 deduplicate_action
 	:
-	DEDUPLICATE LP ID (COMMA ID)* RP
+	DEDUPLICATE LP (TEXT|COLUMN_SQUARED) (COMMA (TEXT|COLUMN_SQUARED))* RP
 	;
 	
 
 rename_action
 	:	
-	RENAME_COLUMN LP x=ID RIGHT_ARROW y=ID RP
+	RENAME_COLUMN LP x=(TEXT|COLUMN_SQUARED) RIGHT_ARROW y=(TEXT|COLUMN_SQUARED) RP
 	{self.standardizer.addAction(self.standardizer.renameColumn,$x.text,$y.text)}
 	;
 	
@@ -138,8 +138,10 @@ WS  :   ( ' '
         ) {$channel=HIDDEN;}
     ;
     
+    
+COLUMN_SQUARED:	'[' TEXT (TEXT|' ')* ']' ;
+
+TEXT 	:	('0'..'9'|'a'..'z'|'A'..'Z'|'-'|'_'|'/'|'|'|'.')+
+        ;
+    
 STRING 	:	'"' ( options {greedy=false;} : . )* '"' ;
-
-ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*  ;
-
-PATH  :	('a'..'z'|'A'..'Z'|'_'|'/'|'.'|'-') ('a'..'z'|'A'..'Z'|'0'..'9'|'_'|'/'|'.'|'-')*  ;

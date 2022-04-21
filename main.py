@@ -2,14 +2,17 @@ from antlr3 import *
 import resources.SparkLexer as sl
 import resources.SparkParser as sp
 
+
 lexer = sl.SparkLexer(ANTLRFileStream('resources/firstProgram.dtsd'))
 tokens = CommonTokenStream(lexer)
 parser = sp.SparkParser(tokens)
-parser.start()
-
+parser.startRule()
+print('finito parser')
 standardizer = parser.getStandardizer()
+standardizer.toString()
 
-standardizer.execute()
+
+
 
 #i = 1
 

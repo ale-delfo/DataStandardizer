@@ -1,5 +1,5 @@
-Source: /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/titanic.csv (csv)
-Destination: output/ (parquet)
+Source: bello/figo.csv (csv)
+Destination: output (parquet)
 
 Deduplicate(ciao);
 RenameColumn(Name -> Nomiiii);

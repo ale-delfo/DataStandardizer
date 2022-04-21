@@ -1,4 +1,4 @@
-# $ANTLR 3.5.1 /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g 2022-04-21 18:54:48
+# $ANTLR 3.5.1 /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g 2022-04-21 22:58:11
 
 import sys
 from antlr3 import *
@@ -12,22 +12,22 @@ HIDDEN = BaseRecognizer.HIDDEN
 EOF=-1
 CAST_COLUMN=4
 CL=5
-COMMA=6
-COMMENT=7
-CREATE_LITERAL=8
-DEDUPLICATE=9
-DESTINATION=10
-FILE_FORMAT=11
-ID=12
+COLUMN_SQUARED=6
+COMMA=7
+COMMENT=8
+CREATE_LITERAL=9
+DEDUPLICATE=10
+DESTINATION=11
+FILE_FORMAT=12
 LP=13
 NORMALIZE_COLUMNS=14
-PATH=15
-RENAME_COLUMN=16
-RIGHT_ARROW=17
-RP=18
-SC=19
-SOURCE=20
-STRING=21
+RENAME_COLUMN=15
+RIGHT_ARROW=16
+RP=17
+SC=18
+SOURCE=19
+STRING=20
+TEXT=21
 TYPE=22
 UNIX_TIME_UNIT=23
 WS=24
@@ -35,11 +35,11 @@ WS=24
 # token names
 tokenNamesMap = {
     0: "<invalid>", 1: "<EOR>", 2: "<DOWN>", 3: "<UP>",
-    -1: "EOF", 4: "CAST_COLUMN", 5: "CL", 6: "COMMA", 7: "COMMENT", 8: "CREATE_LITERAL", 
-    9: "DEDUPLICATE", 10: "DESTINATION", 11: "FILE_FORMAT", 12: "ID", 13: "LP", 
-    14: "NORMALIZE_COLUMNS", 15: "PATH", 16: "RENAME_COLUMN", 17: "RIGHT_ARROW", 
-    18: "RP", 19: "SC", 20: "SOURCE", 21: "STRING", 22: "TYPE", 23: "UNIX_TIME_UNIT", 
-    24: "WS"
+    -1: "EOF", 4: "CAST_COLUMN", 5: "CL", 6: "COLUMN_SQUARED", 7: "COMMA", 
+    8: "COMMENT", 9: "CREATE_LITERAL", 10: "DEDUPLICATE", 11: "DESTINATION", 
+    12: "FILE_FORMAT", 13: "LP", 14: "NORMALIZE_COLUMNS", 15: "RENAME_COLUMN", 
+    16: "RIGHT_ARROW", 17: "RP", 18: "SC", 19: "SOURCE", 20: "STRING", 21: "TEXT", 
+    22: "TYPE", 23: "UNIX_TIME_UNIT", 24: "WS"
 }
 Token.registerTokenNamesMap(tokenNamesMap)
 
@@ -683,36 +683,144 @@ class SparkLexer(Lexer):
 
 
 
+    # $ANTLR start "COLUMN_SQUARED"
+    def mCOLUMN_SQUARED(self, ):
+        try:
+            _type = COLUMN_SQUARED
+            _channel = DEFAULT_CHANNEL
+
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:142:15: ( '[' TEXT ( TEXT | ' ' )* ']' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:142:17: '[' TEXT ( TEXT | ' ' )* ']'
+            pass 
+            self.match(91)
+
+            self.mTEXT()
+
+
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:142:26: ( TEXT | ' ' )*
+            while True: #loop7
+                alt7 = 3
+                LA7_0 = self.input.LA(1)
+
+                if ((45 <= LA7_0 <= 57) or (65 <= LA7_0 <= 90) or (97 <= LA7_0 <= 122) or LA7_0 in {95, 124}) :
+                    alt7 = 1
+                elif (LA7_0 == 32) :
+                    alt7 = 2
+
+
+                if alt7 == 1:
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:142:27: TEXT
+                    pass 
+                    self.mTEXT()
+
+
+
+                elif alt7 == 2:
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:142:32: ' '
+                    pass 
+                    self.match(32)
+
+
+                else:
+                    break #loop7
+
+
+            self.match(93)
+
+
+
+            self._state.type = _type
+            self._state.channel = _channel
+        finally:
+            pass
+
+    # $ANTLR end "COLUMN_SQUARED"
+
+
+
+    # $ANTLR start "TEXT"
+    def mTEXT(self, ):
+        try:
+            _type = TEXT
+            _channel = DEFAULT_CHANNEL
+
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:144:7: ( ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+ )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:144:9: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+
+            pass 
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:144:9: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+
+            cnt8 = 0
+            while True: #loop8
+                alt8 = 2
+                LA8_0 = self.input.LA(1)
+
+                if ((45 <= LA8_0 <= 57) or (65 <= LA8_0 <= 90) or (97 <= LA8_0 <= 122) or LA8_0 in {95, 124}) :
+                    alt8 = 1
+
+
+                if alt8 == 1:
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:
+                    pass 
+                    if (45 <= self.input.LA(1) <= 57) or (65 <= self.input.LA(1) <= 90) or (97 <= self.input.LA(1) <= 122) or self.input.LA(1) in {95, 124}:
+                        self.input.consume()
+                    else:
+                        mse = MismatchedSetException(None, self.input)
+                        self.recover(mse)
+                        raise mse
+
+
+
+
+                else:
+                    if cnt8 >= 1:
+                        break #loop8
+
+                    eee = EarlyExitException(8, self.input)
+                    raise eee
+
+                cnt8 += 1
+
+
+
+
+            self._state.type = _type
+            self._state.channel = _channel
+        finally:
+            pass
+
+    # $ANTLR end "TEXT"
+
+
+
     # $ANTLR start "STRING"
     def mSTRING(self, ):
         try:
             _type = STRING
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:141:9: ( '\"' ( options {greedy=false; } : . )* '\"' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:141:11: '\"' ( options {greedy=false; } : . )* '\"'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:147:9: ( '\"' ( options {greedy=false; } : . )* '\"' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:147:11: '\"' ( options {greedy=false; } : . )* '\"'
             pass 
             self.match(34)
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:141:15: ( options {greedy=false; } : . )*
-            while True: #loop7
-                alt7 = 2
-                LA7_0 = self.input.LA(1)
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:147:15: ( options {greedy=false; } : . )*
+            while True: #loop9
+                alt9 = 2
+                LA9_0 = self.input.LA(1)
 
-                if (LA7_0 == 34) :
-                    alt7 = 2
-                elif ((0 <= LA7_0 <= 33) or (35 <= LA7_0 <= 65535) or LA7_0 in {}) :
-                    alt7 = 1
+                if (LA9_0 == 34) :
+                    alt9 = 2
+                elif ((0 <= LA9_0 <= 33) or (35 <= LA9_0 <= 65535) or LA9_0 in {}) :
+                    alt9 = 1
 
 
-                if alt7 == 1:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:141:43: .
+                if alt9 == 1:
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:147:43: .
                     pass 
                     self.matchAny()
 
 
                 else:
-                    break #loop7
+                    break #loop9
 
 
             self.match(34)
@@ -728,118 +836,8 @@ class SparkLexer(Lexer):
 
 
 
-    # $ANTLR start "ID"
-    def mID(self, ):
-        try:
-            _type = ID
-            _channel = DEFAULT_CHANNEL
-
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:143:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:143:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
-            pass 
-            if (65 <= self.input.LA(1) <= 90) or (97 <= self.input.LA(1) <= 122) or self.input.LA(1) in {95}:
-                self.input.consume()
-            else:
-                mse = MismatchedSetException(None, self.input)
-                self.recover(mse)
-                raise mse
-
-
-
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:143:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
-            while True: #loop8
-                alt8 = 2
-                LA8_0 = self.input.LA(1)
-
-                if ((48 <= LA8_0 <= 57) or (65 <= LA8_0 <= 90) or (97 <= LA8_0 <= 122) or LA8_0 in {95}) :
-                    alt8 = 1
-
-
-                if alt8 == 1:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:
-                    pass 
-                    if (48 <= self.input.LA(1) <= 57) or (65 <= self.input.LA(1) <= 90) or (97 <= self.input.LA(1) <= 122) or self.input.LA(1) in {95}:
-                        self.input.consume()
-                    else:
-                        mse = MismatchedSetException(None, self.input)
-                        self.recover(mse)
-                        raise mse
-
-
-
-
-                else:
-                    break #loop8
-
-
-
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "ID"
-
-
-
-    # $ANTLR start "PATH"
-    def mPATH(self, ):
-        try:
-            _type = PATH
-            _channel = DEFAULT_CHANNEL
-
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:145:7: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '/' | '.' | '-' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '/' | '.' | '-' )* )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:145:9: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '/' | '.' | '-' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '/' | '.' | '-' )*
-            pass 
-            if (65 <= self.input.LA(1) <= 90) or (97 <= self.input.LA(1) <= 122) or self.input.LA(1) in {45, 46, 47, 95}:
-                self.input.consume()
-            else:
-                mse = MismatchedSetException(None, self.input)
-                self.recover(mse)
-                raise mse
-
-
-
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:145:45: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '/' | '.' | '-' )*
-            while True: #loop9
-                alt9 = 2
-                LA9_0 = self.input.LA(1)
-
-                if ((45 <= LA9_0 <= 57) or (65 <= LA9_0 <= 90) or (97 <= LA9_0 <= 122) or LA9_0 in {95}) :
-                    alt9 = 1
-
-
-                if alt9 == 1:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:
-                    pass 
-                    if (45 <= self.input.LA(1) <= 57) or (65 <= self.input.LA(1) <= 90) or (97 <= self.input.LA(1) <= 122) or self.input.LA(1) in {95}:
-                        self.input.consume()
-                    else:
-                        mse = MismatchedSetException(None, self.input)
-                        self.recover(mse)
-                        raise mse
-
-
-
-
-                else:
-                    break #loop9
-
-
-
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "PATH"
-
-
-
     def mTokens(self):
-        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:1:8: ( COMMA | TYPE | UNIX_TIME_UNIT | RENAME_COLUMN | CAST_COLUMN | CREATE_LITERAL | DEDUPLICATE | NORMALIZE_COLUMNS | CL | LP | RP | SC | RIGHT_ARROW | FILE_FORMAT | SOURCE | DESTINATION | COMMENT | WS | STRING | ID | PATH )
+        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:1:8: ( COMMA | TYPE | UNIX_TIME_UNIT | RENAME_COLUMN | CAST_COLUMN | CREATE_LITERAL | DEDUPLICATE | NORMALIZE_COLUMNS | CL | LP | RP | SC | RIGHT_ARROW | FILE_FORMAT | SOURCE | DESTINATION | COMMENT | WS | COLUMN_SQUARED | TEXT | STRING )
         alt10 = 21
         alt10 = self.dfa10.predict(self.input)
         if alt10 == 1:
@@ -969,23 +967,23 @@ class SparkLexer(Lexer):
 
 
         elif alt10 == 19:
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:1:173: STRING
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:1:173: COLUMN_SQUARED
             pass 
-            self.mSTRING()
+            self.mCOLUMN_SQUARED()
 
 
 
         elif alt10 == 20:
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:1:180: ID
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:1:188: TEXT
             pass 
-            self.mID()
+            self.mTEXT()
 
 
 
         elif alt10 == 21:
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:1:183: PATH
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:1:193: STRING
             pass 
-            self.mPATH()
+            self.mSTRING()
 
 
 
@@ -997,260 +995,205 @@ class SparkLexer(Lexer):
     # lookup tables for DFA #10
 
     DFA10_eot = DFA.unpack(
-        "\2\uffff\4\32\1\40\3\32\4\uffff\1\27\4\32\1\27\2\uffff\1\32\1\uffff"
-        "\2\32\1\uffff\5\32\1\uffff\4\32\1\uffff\4\32\1\27\1\uffff\1\74\13"
-        "\32\1\110\2\32\1\27\1\uffff\7\32\1\122\3\32\1\uffff\2\110\1\74\6"
-        "\32\1\uffff\3\32\1\74\2\32\1\74\1\141\6\32\1\uffff\3\32\1\110\11"
-        "\32\1\164\4\32\1\uffff\1\171\1\172\2\32\2\uffff\1\175\1\32\1\uffff"
-        "\1\177\1\uffff"
+        "\2\uffff\4\26\1\36\3\26\4\uffff\6\26\4\uffff\6\26\1\uffff\4\26\1"
+        "\uffff\5\26\1\uffff\1\72\13\26\1\106\3\26\1\uffff\7\26\1\120\3\26"
+        "\1\uffff\2\106\1\72\6\26\1\uffff\3\26\1\72\2\26\1\72\1\137\6\26"
+        "\1\uffff\3\26\1\106\11\26\1\162\4\26\1\uffff\1\167\1\170\2\26\2"
+        "\uffff\1\173\1\26\1\uffff\1\175\1\uffff"
         )
 
     DFA10_eof = DFA.unpack(
-        "\u0080\uffff"
+        "\176\uffff"
         )
 
     DFA10_min = DFA.unpack(
-        "\1\11\1\uffff\10\55\4\uffff\1\76\4\55\1\52\2\uffff\1\55\1\uffff"
-        "\2\55\1\uffff\5\55\1\uffff\4\55\1\uffff\4\55\1\0\1\uffff\17\55\1"
-        "\0\1\uffff\13\55\1\uffff\11\55\1\uffff\16\55\1\uffff\22\55\1\uffff"
-        "\4\55\2\uffff\2\55\1\uffff\1\55\1\uffff"
+        "\1\11\1\uffff\1\116\1\114\1\117\1\124\1\55\1\145\1\141\1\157\4\uffff"
+        "\1\76\1\141\2\163\1\166\1\52\4\uffff\1\124\1\117\1\125\1\144\1\122"
+        "\1\165\1\uffff\1\156\1\163\1\145\1\162\1\uffff\1\162\1\166\1\157"
+        "\1\162\1\0\1\uffff\1\55\1\101\1\102\1\165\1\164\1\111\1\162\1\141"
+        "\1\164\1\141\1\155\1\161\1\55\1\156\1\157\1\0\1\uffff\1\124\1\114"
+        "\1\160\1\151\1\116\1\143\1\155\1\55\1\164\1\141\1\165\1\uffff\3"
+        "\55\1\105\1\154\1\156\1\107\2\145\1\uffff\1\145\1\154\1\145\1\55"
+        "\1\151\1\141\2\55\1\103\1\114\1\151\1\164\1\143\1\164\1\uffff\1"
+        "\157\1\151\1\172\1\55\1\141\1\151\1\154\1\164\1\145\1\164\1\157"
+        "\1\165\1\145\1\55\1\145\1\156\1\155\1\162\1\uffff\2\55\1\156\1\141"
+        "\2\uffff\1\55\1\154\1\uffff\1\55\1\uffff"
         )
 
     DFA10_max = DFA.unpack(
-        "\1\172\1\uffff\10\172\4\uffff\1\76\4\172\1\57\2\uffff\1\172\1\uffff"
-        "\2\172\1\uffff\5\172\1\uffff\4\172\1\uffff\4\172\1\uffff\1\uffff"
-        "\17\172\1\uffff\1\uffff\13\172\1\uffff\11\172\1\uffff\16\172\1\uffff"
-        "\22\172\1\uffff\4\172\2\uffff\2\172\1\uffff\1\172\1\uffff"
+        "\1\174\1\uffff\1\116\1\114\1\145\1\157\1\174\1\145\1\162\1\157\4"
+        "\uffff\1\76\1\141\2\163\1\166\1\57\4\uffff\1\124\1\117\1\125\1\163"
+        "\1\122\1\165\1\uffff\1\156\1\163\1\145\1\162\1\uffff\1\162\1\166"
+        "\1\157\1\162\1\uffff\1\uffff\1\174\1\101\1\102\1\165\1\164\1\111"
+        "\1\162\1\141\1\164\1\141\1\155\1\161\1\174\1\156\1\157\1\uffff\1"
+        "\uffff\1\124\1\114\1\160\1\151\1\116\1\143\1\155\1\174\1\164\1\141"
+        "\1\165\1\uffff\3\174\1\105\1\154\1\156\1\107\2\145\1\uffff\1\145"
+        "\1\154\1\145\1\174\1\151\1\141\2\174\1\103\1\114\1\151\1\164\1\143"
+        "\1\164\1\uffff\1\157\1\151\1\172\1\174\1\141\1\151\1\154\1\164\1"
+        "\145\1\164\1\157\1\165\1\145\1\174\1\145\1\156\1\155\1\162\1\uffff"
+        "\2\174\1\156\1\141\2\uffff\1\174\1\154\1\uffff\1\174\1\uffff"
         )
 
     DFA10_accept = DFA.unpack(
-        "\1\uffff\1\1\10\uffff\1\11\1\12\1\13\1\14\6\uffff\1\22\1\23\1\uffff"
-        "\1\25\2\uffff\1\24\5\uffff\1\3\4\uffff\1\15\5\uffff\1\21\20\uffff"
-        "\1\2\13\uffff\1\16\11\uffff\1\5\16\uffff\1\17\22\uffff\1\10\4\uffff"
-        "\1\7\1\20\2\uffff\1\4\1\uffff\1\6"
+        "\1\uffff\1\1\10\uffff\1\11\1\12\1\13\1\14\6\uffff\1\22\1\23\1\24"
+        "\1\25\6\uffff\1\3\4\uffff\1\15\5\uffff\1\21\20\uffff\1\2\13\uffff"
+        "\1\16\11\uffff\1\5\16\uffff\1\17\22\uffff\1\10\4\uffff\1\7\1\20"
+        "\2\uffff\1\4\1\uffff\1\6"
         )
 
     DFA10_special = DFA.unpack(
-        "\52\uffff\1\0\20\uffff\1\1\104\uffff"
+        "\50\uffff\1\0\20\uffff\1\1\104\uffff"
         )
 
 
     DFA10_transition = [
-        DFA.unpack("\2\24\2\uffff\1\24\22\uffff\1\24\1\uffff\1\25\5\uffff"
-        "\1\13\1\14\2\uffff\1\1\1\16\1\27\1\23\12\uffff\1\12\1\15\5\uffff"
-        "\2\26\1\10\1\4\1\26\1\3\2\26\1\2\4\26\1\11\3\26\1\7\1\5\7\26\4\uffff"
-        "\1\26\1\uffff\1\22\1\26\1\20\6\26\1\21\2\26\2\6\1\26\1\17\2\26\1"
-        "\6\7\26"),
+        DFA.unpack("\2\24\2\uffff\1\24\22\uffff\1\24\1\uffff\1\27\5\uffff"
+        "\1\13\1\14\2\uffff\1\1\1\16\1\26\1\23\12\26\1\12\1\15\5\uffff\2"
+        "\26\1\10\1\4\1\26\1\3\2\26\1\2\4\26\1\11\3\26\1\7\1\5\7\26\1\25"
+        "\3\uffff\1\26\1\uffff\1\22\1\26\1\20\6\26\1\21\2\26\2\6\1\26\1\17"
+        "\2\26\1\6\7\26\1\uffff\1\26"),
         DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\15\31\1\30\14\31\4\uffff\1\31\1"
-        "\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\13\31\1\33\16\31\4\uffff\1\31\1"
-        "\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\16\31\1\34\13\31\4\uffff\1\31\1"
-        "\uffff\4\31\1\35\25\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\23\31\1\36\6\31\4\uffff\1\31\1\uffff"
-        "\16\31\1\37\13\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\4\31"
-        "\1\41\25\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\1\42"
-        "\20\31\1\43\10\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\16\31"
-        "\1\44\13\31"),
+        DFA.unpack("\1\30"),
+        DFA.unpack("\1\31"),
+        DFA.unpack("\1\32\25\uffff\1\33"),
+        DFA.unpack("\1\34\32\uffff\1\35"),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\1\37"),
+        DFA.unpack("\1\40\20\uffff\1\41"),
+        DFA.unpack("\1\42"),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
+        DFA.unpack("\1\43"),
+        DFA.unpack("\1\44"),
         DFA.unpack("\1\45"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\1\46"
-        "\31\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\22\31"
-        "\1\47\7\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\22\31"
-        "\1\50\7\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\25\31"
-        "\1\51\4\31"),
-        DFA.unpack("\1\53\4\uffff\1\52"),
+        DFA.unpack("\1\46"),
+        DFA.unpack("\1\47"),
+        DFA.unpack("\1\51\4\uffff\1\50"),
         DFA.unpack(""),
         DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\23\31\1\54\6\31\4\uffff\1\31\1\uffff"
-        "\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\16\31\1\55\13\31\4\uffff\1\31\1"
-        "\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\24\31\1\56\5\31\4\uffff\1\31\1\uffff"
-        "\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\3\31"
-        "\1\57\16\31\1\60\7\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\21\31\1\61\10\31\4\uffff\1\31\1"
-        "\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\24\31"
-        "\1\62\5\31"),
-        DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\15\31"
-        "\1\63\14\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\22\31"
-        "\1\64\7\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\4\31"
-        "\1\65\25\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\21\31"
-        "\1\66\10\31"),
-        DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\21\31"
-        "\1\67\10\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\25\31"
-        "\1\70\4\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\16\31"
-        "\1\71\13\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\21\31"
-        "\1\72\10\31"),
-        DFA.unpack("\55\53\15\73\7\53\32\73\4\53\1\73\1\53\32\73\uff85\53"),
-        DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\1\75\31\31\4\uffff\1\31\1\uffff"
-        "\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\1\31\1\76\30\31\4\uffff\1\31\1\uffff"
-        "\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\24\31"
-        "\1\77\5\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\23\31"
-        "\1\100\6\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\10\31\1\101\21\31\4\uffff\1\31\1"
-        "\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\21\31"
-        "\1\102\10\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\1\103"
-        "\31\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\23\31"
-        "\1\104\6\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\1\105"
-        "\31\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\14\31"
-        "\1\106\15\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\20\31"
-        "\1\107\11\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\15\31"
-        "\1\111\14\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\16\31"
-        "\1\112\13\31"),
-        DFA.unpack("\55\53\15\73\7\53\32\73\4\53\1\73\1\53\32\73\uff85\53"),
-        DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\23\31\1\113\6\31\4\uffff\1\31\1"
-        "\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\13\31\1\114\16\31\4\uffff\1\31\1"
-        "\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\17\31"
-        "\1\115\12\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\10\31"
-        "\1\116\21\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\15\31\1\117\14\31\4\uffff\1\31\1"
-        "\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\2\31"
-        "\1\120\27\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\14\31"
-        "\1\121\15\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\23\31"
-        "\1\123\6\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\1\124"
-        "\31\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\24\31"
-        "\1\125\5\31"),
-        DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\4\31\1\126\25\31\4\uffff\1\31\1"
-        "\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\13\31"
-        "\1\127\16\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\15\31"
-        "\1\130\14\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\6\31\1\131\23\31\4\uffff\1\31\1"
-        "\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\4\31"
-        "\1\132\25\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\4\31"
-        "\1\133\25\31"),
-        DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\4\31"
-        "\1\134\25\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\13\31"
-        "\1\135\16\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\4\31"
-        "\1\136\25\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\10\31"
-        "\1\137\21\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\1\140"
-        "\31\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\2\31\1\142\27\31\4\uffff\1\31\1"
-        "\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\13\31\1\143\16\31\4\uffff\1\31\1"
-        "\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\10\31"
-        "\1\144\21\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\23\31"
-        "\1\145\6\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\2\31"
-        "\1\146\27\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\23\31"
-        "\1\147\6\31"),
-        DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\16\31"
-        "\1\150\13\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\10\31"
-        "\1\151\21\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\31\31"
-        "\1\152"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\1\153"
-        "\31\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\10\31"
-        "\1\154\21\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\13\31"
-        "\1\155\16\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\23\31"
-        "\1\156\6\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\4\31"
-        "\1\157\25\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\23\31"
-        "\1\160\6\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\16\31"
-        "\1\161\13\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\24\31"
-        "\1\162\5\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\4\31"
-        "\1\163\25\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\4\31"
-        "\1\165\25\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\15\31"
-        "\1\166\14\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\14\31"
-        "\1\167\15\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\21\31"
-        "\1\170\10\31"),
-        DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\15\31"
-        "\1\173\14\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\1\174"
-        "\31\31"),
         DFA.unpack(""),
         DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\13\31"
-        "\1\176\16\31"),
+        DFA.unpack("\1\52"),
+        DFA.unpack("\1\53"),
+        DFA.unpack("\1\54"),
+        DFA.unpack("\1\55\16\uffff\1\56"),
+        DFA.unpack("\1\57"),
+        DFA.unpack("\1\60"),
         DFA.unpack(""),
-        DFA.unpack("\3\27\12\31\7\uffff\32\31\4\uffff\1\31\1\uffff\32\31"),
+        DFA.unpack("\1\61"),
+        DFA.unpack("\1\62"),
+        DFA.unpack("\1\63"),
+        DFA.unpack("\1\64"),
+        DFA.unpack(""),
+        DFA.unpack("\1\65"),
+        DFA.unpack("\1\66"),
+        DFA.unpack("\1\67"),
+        DFA.unpack("\1\70"),
+        DFA.unpack("\55\51\15\71\7\51\32\71\4\51\1\71\1\51\32\71\1\51\1"
+        "\71\uff83\51"),
+        DFA.unpack(""),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\1\73"),
+        DFA.unpack("\1\74"),
+        DFA.unpack("\1\75"),
+        DFA.unpack("\1\76"),
+        DFA.unpack("\1\77"),
+        DFA.unpack("\1\100"),
+        DFA.unpack("\1\101"),
+        DFA.unpack("\1\102"),
+        DFA.unpack("\1\103"),
+        DFA.unpack("\1\104"),
+        DFA.unpack("\1\105"),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\1\107"),
+        DFA.unpack("\1\110"),
+        DFA.unpack("\55\51\15\71\7\51\32\71\4\51\1\71\1\51\32\71\1\51\1"
+        "\71\uff83\51"),
+        DFA.unpack(""),
+        DFA.unpack("\1\111"),
+        DFA.unpack("\1\112"),
+        DFA.unpack("\1\113"),
+        DFA.unpack("\1\114"),
+        DFA.unpack("\1\115"),
+        DFA.unpack("\1\116"),
+        DFA.unpack("\1\117"),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\1\121"),
+        DFA.unpack("\1\122"),
+        DFA.unpack("\1\123"),
+        DFA.unpack(""),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\1\124"),
+        DFA.unpack("\1\125"),
+        DFA.unpack("\1\126"),
+        DFA.unpack("\1\127"),
+        DFA.unpack("\1\130"),
+        DFA.unpack("\1\131"),
+        DFA.unpack(""),
+        DFA.unpack("\1\132"),
+        DFA.unpack("\1\133"),
+        DFA.unpack("\1\134"),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\1\135"),
+        DFA.unpack("\1\136"),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\1\140"),
+        DFA.unpack("\1\141"),
+        DFA.unpack("\1\142"),
+        DFA.unpack("\1\143"),
+        DFA.unpack("\1\144"),
+        DFA.unpack("\1\145"),
+        DFA.unpack(""),
+        DFA.unpack("\1\146"),
+        DFA.unpack("\1\147"),
+        DFA.unpack("\1\150"),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\1\151"),
+        DFA.unpack("\1\152"),
+        DFA.unpack("\1\153"),
+        DFA.unpack("\1\154"),
+        DFA.unpack("\1\155"),
+        DFA.unpack("\1\156"),
+        DFA.unpack("\1\157"),
+        DFA.unpack("\1\160"),
+        DFA.unpack("\1\161"),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\1\163"),
+        DFA.unpack("\1\164"),
+        DFA.unpack("\1\165"),
+        DFA.unpack("\1\166"),
+        DFA.unpack(""),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\1\171"),
+        DFA.unpack("\1\172"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
+        DFA.unpack("\1\174"),
+        DFA.unpack(""),
+        DFA.unpack("\15\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26\1\uffff"
+        "\1\26"),
         DFA.unpack("")
     ]
 
@@ -1271,32 +1214,32 @@ class SparkLexer(Lexer):
             _s = s
 
             if s == 0: 
-                LA10_42 = input.LA(1)
+                LA10_40 = input.LA(1)
 
                 s = -1
-                if ((45 <= LA10_42 <= 57) or (65 <= LA10_42 <= 90) or (97 <= LA10_42 <= 122) or LA10_42 in {95}):
-                    s = 59
+                if ((45 <= LA10_40 <= 57) or (65 <= LA10_40 <= 90) or (97 <= LA10_40 <= 122) or LA10_40 in {95, 124}):
+                    s = 57
 
-                elif ((0 <= LA10_42 <= 44) or (58 <= LA10_42 <= 64) or (123 <= LA10_42 <= 65535) or LA10_42 in {91, 92, 93, 94, 96}):
-                    s = 43
+                elif ((0 <= LA10_40 <= 44) or (58 <= LA10_40 <= 64) or (125 <= LA10_40 <= 65535) or LA10_40 in {91, 92, 93, 94, 96, 123}):
+                    s = 41
 
                 else:
-                    s = 23
+                    s = 22
 
                 if s >= 0:
                     return s
             elif s == 1: 
-                LA10_59 = input.LA(1)
+                LA10_57 = input.LA(1)
 
                 s = -1
-                if ((0 <= LA10_59 <= 44) or (58 <= LA10_59 <= 64) or (123 <= LA10_59 <= 65535) or LA10_59 in {91, 92, 93, 94, 96}):
-                    s = 43
+                if ((0 <= LA10_57 <= 44) or (58 <= LA10_57 <= 64) or (125 <= LA10_57 <= 65535) or LA10_57 in {91, 92, 93, 94, 96, 123}):
+                    s = 41
 
-                elif ((45 <= LA10_59 <= 57) or (65 <= LA10_59 <= 90) or (97 <= LA10_59 <= 122) or LA10_59 in {95}):
-                    s = 59
+                elif ((45 <= LA10_57 <= 57) or (65 <= LA10_57 <= 90) or (97 <= LA10_57 <= 122) or LA10_57 in {95, 124}):
+                    s = 57
 
                 else:
-                    s = 23
+                    s = 22
 
                 if s >= 0:
                     return s
