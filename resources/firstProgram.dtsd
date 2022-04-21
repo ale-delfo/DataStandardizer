@@ -1,0 +1,6 @@
+Source: "Alessandro" (json)
+Destination: "Delle Foglie" (csv)
+
+Deduplicate(ciao);
+RenameColumn(ID -> BlaBla);
+Cast(ID)(INT -> STRING);
