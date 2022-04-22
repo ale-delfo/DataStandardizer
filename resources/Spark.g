@@ -21,7 +21,7 @@ startRule
 	:	source_definition NEWLINE
 		destination_definition NEWLINE+
 		(PLUS action)*
-		EOF
+		 EOF
 	;
 	
 source_definition
@@ -44,12 +44,17 @@ action 	:
 		deduplicate_action |
 		store_columns_action |
 		from_unixtime_action |
-		output_partitions_action
+		output_partitions_action 
 		)
 		(NEWLINE|EOF)
 	;
 	
-	
+
+//sort_output_action
+//	:	SORT_OUTPUT LP TEXT RP ORDER_BY y=TEXT z=SORT
+//		{}
+//	;
+
 from_unixtime_action
 	:	FROM_UNIXTIME LP x=EPOCH_FORMAT RP LP y=TEXT RP  
 		{self.standardizer.addAction(self.standardizer.fromUnixtime,$x.text,$y.text)}
@@ -113,7 +118,11 @@ COMMA	:	',';
 
 SORT 	:	'ASC' | 'DESC' | 'asc' | 'desc' ;
 
-TYPE 	:	'INT' | 'FLOAT' | 'DOUBLE' | 'STRING' ;
+TYPE 	:	'INT' | 'FLOAT' | 'DOUBLE' | 'STRING' | 'LONG' ;
+
+//SORT_OUTPUT
+//	:	'SortOutput'
+//	;
 
 OUTPUT_PARTITIONS
 	:	'OutputPartitions'

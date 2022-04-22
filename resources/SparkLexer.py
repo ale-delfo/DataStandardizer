@@ -1,4 +1,4 @@
-# $ANTLR 3.5.1 /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g 2022-04-22 18:06:32
+# $ANTLR 3.5.1 /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g 2022-04-22 18:25:38
 
 import sys
 from antlr3 import *
@@ -83,7 +83,7 @@ class SparkLexer(Lexer):
             _type = EPOCH_FORMAT
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:105:2: ( 's' | 'm' | 'n' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:110:2: ( 's' | 'm' | 'n' )
             # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:
             pass 
             if self.input.LA(1) in {109, 110, 115}:
@@ -112,8 +112,8 @@ class SparkLexer(Lexer):
             _type = NEWLINE
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:108:9: ( '\\n' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:108:11: '\\n'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:113:9: ( '\\n' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:113:11: '\\n'
             pass 
             self.match(10)
 
@@ -134,8 +134,8 @@ class SparkLexer(Lexer):
             _type = PLUS
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:110:6: ( '+' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:110:8: '+'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:115:6: ( '+' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:115:8: '+'
             pass 
             self.match(43)
 
@@ -156,8 +156,8 @@ class SparkLexer(Lexer):
             _type = COMMA
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:112:7: ( ',' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:112:9: ','
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:117:7: ( ',' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:117:9: ','
             pass 
             self.match(44)
 
@@ -178,7 +178,7 @@ class SparkLexer(Lexer):
             _type = SORT
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:114:7: ( 'ASC' | 'DESC' | 'asc' | 'desc' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:119:7: ( 'ASC' | 'DESC' | 'asc' | 'desc' )
             alt1 = 4
             LA1 = self.input.LA(1)
             if LA1 in {65}:
@@ -196,28 +196,28 @@ class SparkLexer(Lexer):
 
 
             if alt1 == 1:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:114:9: 'ASC'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:119:9: 'ASC'
                 pass 
                 self.match("ASC")
 
 
 
             elif alt1 == 2:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:114:17: 'DESC'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:119:17: 'DESC'
                 pass 
                 self.match("DESC")
 
 
 
             elif alt1 == 3:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:114:26: 'asc'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:119:26: 'asc'
                 pass 
                 self.match("asc")
 
 
 
             elif alt1 == 4:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:114:34: 'desc'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:119:34: 'desc'
                 pass 
                 self.match("desc")
 
@@ -238,8 +238,8 @@ class SparkLexer(Lexer):
             _type = TYPE
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:116:7: ( 'INT' | 'FLOAT' | 'DOUBLE' | 'STRING' )
-            alt2 = 4
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:121:7: ( 'INT' | 'FLOAT' | 'DOUBLE' | 'STRING' | 'LONG' )
+            alt2 = 5
             LA2 = self.input.LA(1)
             if LA2 in {73}:
                 alt2 = 1
@@ -249,6 +249,8 @@ class SparkLexer(Lexer):
                 alt2 = 3
             elif LA2 in {83}:
                 alt2 = 4
+            elif LA2 in {76}:
+                alt2 = 5
             else:
                 nvae = NoViableAltException("", 2, 0, self.input)
 
@@ -256,30 +258,37 @@ class SparkLexer(Lexer):
 
 
             if alt2 == 1:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:116:9: 'INT'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:121:9: 'INT'
                 pass 
                 self.match("INT")
 
 
 
             elif alt2 == 2:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:116:17: 'FLOAT'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:121:17: 'FLOAT'
                 pass 
                 self.match("FLOAT")
 
 
 
             elif alt2 == 3:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:116:27: 'DOUBLE'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:121:27: 'DOUBLE'
                 pass 
                 self.match("DOUBLE")
 
 
 
             elif alt2 == 4:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:116:38: 'STRING'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:121:38: 'STRING'
                 pass 
                 self.match("STRING")
+
+
+
+            elif alt2 == 5:
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:121:49: 'LONG'
+                pass 
+                self.match("LONG")
 
 
 
@@ -298,8 +307,8 @@ class SparkLexer(Lexer):
             _type = OUTPUT_PARTITIONS
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:119:2: ( 'OutputPartitions' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:119:4: 'OutputPartitions'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:128:2: ( 'OutputPartitions' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:128:4: 'OutputPartitions'
             pass 
             self.match("OutputPartitions")
 
@@ -321,8 +330,8 @@ class SparkLexer(Lexer):
             _type = FROM_UNIXTIME
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:123:2: ( 'FromUnixtime' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:123:4: 'FromUnixtime'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:132:2: ( 'FromUnixtime' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:132:4: 'FromUnixtime'
             pass 
             self.match("FromUnixtime")
 
@@ -344,8 +353,8 @@ class SparkLexer(Lexer):
             _type = ORDER_BY
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:127:2: ( 'order by' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:127:4: 'order by'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:136:2: ( 'order by' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:136:4: 'order by'
             pass 
             self.match("order by")
 
@@ -367,8 +376,8 @@ class SparkLexer(Lexer):
             _type = STORE_COLUMNS
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:130:2: ( 'StoreColumns' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:130:4: 'StoreColumns'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:139:2: ( 'StoreColumns' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:139:4: 'StoreColumns'
             pass 
             self.match("StoreColumns")
 
@@ -390,8 +399,8 @@ class SparkLexer(Lexer):
             _type = RENAME_COLUMN
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:133:2: ( 'RenameColumn' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:133:4: 'RenameColumn'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:142:2: ( 'RenameColumn' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:142:4: 'RenameColumn'
             pass 
             self.match("RenameColumn")
 
@@ -413,8 +422,8 @@ class SparkLexer(Lexer):
             _type = CAST_COLUMN
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:136:2: ( 'Cast' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:136:4: 'Cast'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:145:2: ( 'Cast' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:145:4: 'Cast'
             pass 
             self.match("Cast")
 
@@ -436,8 +445,8 @@ class SparkLexer(Lexer):
             _type = CREATE_LITERAL
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:139:2: ( 'CreateLiteral' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:139:4: 'CreateLiteral'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:148:2: ( 'CreateLiteral' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:148:4: 'CreateLiteral'
             pass 
             self.match("CreateLiteral")
 
@@ -459,8 +468,8 @@ class SparkLexer(Lexer):
             _type = DEDUPLICATE
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:143:2: ( 'Deduplicate' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:143:4: 'Deduplicate'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:152:2: ( 'Deduplicate' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:152:4: 'Deduplicate'
             pass 
             self.match("Deduplicate")
 
@@ -482,8 +491,8 @@ class SparkLexer(Lexer):
             _type = CL
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:146:4: ( ':' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:146:6: ':'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:155:4: ( ':' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:155:6: ':'
             pass 
             self.match(58)
 
@@ -504,8 +513,8 @@ class SparkLexer(Lexer):
             _type = LP
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:147:4: ( '(' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:147:6: '('
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:156:4: ( '(' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:156:6: '('
             pass 
             self.match(40)
 
@@ -526,8 +535,8 @@ class SparkLexer(Lexer):
             _type = RP
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:148:4: ( ')' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:148:6: ')'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:157:4: ( ')' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:157:6: ')'
             pass 
             self.match(41)
 
@@ -548,8 +557,8 @@ class SparkLexer(Lexer):
             _type = SC
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:149:5: ( ';' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:149:7: ';'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:158:5: ( ';' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:158:7: ';'
             pass 
             self.match(59)
 
@@ -570,8 +579,8 @@ class SparkLexer(Lexer):
             _type = RIGHT_ARROW
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:152:2: ( '->' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:152:4: '->'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:161:2: ( '->' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:161:4: '->'
             pass 
             self.match("->")
 
@@ -593,7 +602,7 @@ class SparkLexer(Lexer):
             _type = FILE_FORMAT
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:155:2: ( 'parquet' | 'csv' | 'json' | 'avro' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:164:2: ( 'parquet' | 'csv' | 'json' | 'avro' )
             alt3 = 4
             LA3 = self.input.LA(1)
             if LA3 in {112}:
@@ -611,28 +620,28 @@ class SparkLexer(Lexer):
 
 
             if alt3 == 1:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:155:4: 'parquet'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:164:4: 'parquet'
                 pass 
                 self.match("parquet")
 
 
 
             elif alt3 == 2:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:156:4: 'csv'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:165:4: 'csv'
                 pass 
                 self.match("csv")
 
 
 
             elif alt3 == 3:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:157:4: 'json'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:166:4: 'json'
                 pass 
                 self.match("json")
 
 
 
             elif alt3 == 4:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:158:4: 'avro'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:167:4: 'avro'
                 pass 
                 self.match("avro")
 
@@ -653,8 +662,8 @@ class SparkLexer(Lexer):
             _type = SOURCE
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:162:8: ( 'Source' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:162:10: 'Source'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:171:8: ( 'Source' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:171:10: 'Source'
             pass 
             self.match("Source")
 
@@ -676,8 +685,8 @@ class SparkLexer(Lexer):
             _type = DESTINATION
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:165:2: ( 'Destination' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:165:4: 'Destination'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:174:2: ( 'Destination' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:174:4: 'Destination'
             pass 
             self.match("Destination")
 
@@ -699,7 +708,7 @@ class SparkLexer(Lexer):
             _type = COMMENT
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:168:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:177:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
             alt7 = 2
             LA7_0 = self.input.LA(1)
 
@@ -723,12 +732,12 @@ class SparkLexer(Lexer):
 
 
             if alt7 == 1:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:168:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:177:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
                 pass 
                 self.match("//")
 
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:168:14: (~ ( '\\n' | '\\r' ) )*
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:177:14: (~ ( '\\n' | '\\r' ) )*
                 while True: #loop4
                     alt4 = 2
                     LA4_0 = self.input.LA(1)
@@ -754,14 +763,14 @@ class SparkLexer(Lexer):
                         break #loop4
 
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:168:28: ( '\\r' )?
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:177:28: ( '\\r' )?
                 alt5 = 2
                 LA5_0 = self.input.LA(1)
 
                 if (LA5_0 == 13) :
                     alt5 = 1
                 if alt5 == 1:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:168:28: '\\r'
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:177:28: '\\r'
                     pass 
                     self.match(13)
 
@@ -777,12 +786,12 @@ class SparkLexer(Lexer):
 
 
             elif alt7 == 2:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:169:9: '/*' ( options {greedy=false; } : . )* '*/'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:178:9: '/*' ( options {greedy=false; } : . )* '*/'
                 pass 
                 self.match("/*")
 
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:169:14: ( options {greedy=false; } : . )*
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:178:14: ( options {greedy=false; } : . )*
                 while True: #loop6
                     alt6 = 2
                     LA6_0 = self.input.LA(1)
@@ -801,7 +810,7 @@ class SparkLexer(Lexer):
 
 
                     if alt6 == 1:
-                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:169:42: .
+                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:178:42: .
                         pass 
                         self.matchAny()
 
@@ -834,8 +843,8 @@ class SparkLexer(Lexer):
             _type = WS
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:172:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:172:9: ( ' ' | '\\t' | '\\r' | '\\n' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:181:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:181:9: ( ' ' | '\\t' | '\\r' | '\\n' )
             pass 
             if self.input.LA(1) in {9, 10, 13, 32}:
                 self.input.consume()
@@ -868,10 +877,10 @@ class SparkLexer(Lexer):
             _type = TEXT
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:180:9: ( ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+ )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:180:11: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:189:9: ( ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+ )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:189:11: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+
             pass 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:180:11: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:189:11: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+
             cnt8 = 0
             while True: #loop8
                 alt8 = 2
@@ -921,12 +930,12 @@ class SparkLexer(Lexer):
             _type = STRING
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:183:9: ( '\"' ( options {greedy=false; } : . )* '\"' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:183:11: '\"' ( options {greedy=false; } : . )* '\"'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:192:9: ( '\"' ( options {greedy=false; } : . )* '\"' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:192:11: '\"' ( options {greedy=false; } : . )* '\"'
             pass 
             self.match(34)
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:183:15: ( options {greedy=false; } : . )*
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:192:15: ( options {greedy=false; } : . )*
             while True: #loop9
                 alt9 = 2
                 LA9_0 = self.input.LA(1)
@@ -938,7 +947,7 @@ class SparkLexer(Lexer):
 
 
                 if alt9 == 1:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:183:43: .
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:192:43: .
                     pass 
                     self.matchAny()
 
@@ -1154,111 +1163,111 @@ class SparkLexer(Lexer):
     # lookup tables for DFA #10
 
     DFA10_eot = DFA.unpack(
-        "\1\uffff\1\34\3\uffff\13\32\4\uffff\5\32\5\uffff\22\32\1\uffff\4"
-        "\32\1\uffff\1\115\4\32\1\115\2\32\1\124\13\32\1\140\2\32\1\uffff"
-        "\1\115\3\32\1\140\1\115\1\uffff\10\32\1\155\2\32\1\uffff\1\140\3"
-        "\32\1\124\7\32\1\uffff\2\32\1\124\3\32\1\124\1\32\1\u0080\1\32\1"
-        "\uffff\7\32\1\uffff\3\32\1\140\25\32\1\u00a1\1\u00a2\5\32\2\uffff"
-        "\1\u00a8\1\u00a9\1\32\1\u00ab\1\32\2\uffff\1\32\1\uffff\1\u00ae"
-        "\1\32\1\uffff\1\32\1\u00b1\1\uffff"
+        "\1\uffff\1\35\3\uffff\14\33\4\uffff\5\33\5\uffff\23\33\1\uffff\4"
+        "\33\1\uffff\1\120\4\33\1\120\2\33\1\127\14\33\1\144\2\33\1\uffff"
+        "\1\120\3\33\1\144\1\120\1\uffff\5\33\1\127\3\33\1\161\2\33\1\uffff"
+        "\1\144\3\33\1\127\7\33\1\uffff\2\33\1\127\3\33\1\127\1\33\1\u0084"
+        "\1\33\1\uffff\7\33\1\uffff\3\33\1\144\25\33\1\u00a5\1\u00a6\5\33"
+        "\2\uffff\1\u00ac\1\u00ad\1\33\1\u00af\1\33\2\uffff\1\33\1\uffff"
+        "\1\u00b2\1\33\1\uffff\1\33\1\u00b5\1\uffff"
         )
 
     DFA10_eof = DFA.unpack(
-        "\u00b2\uffff"
+        "\u00b6\uffff"
         )
 
     DFA10_min = DFA.unpack(
-        "\1\11\1\55\3\uffff\1\123\1\105\1\163\1\145\1\116\1\114\1\124\1\165"
-        "\1\162\1\145\1\141\4\uffff\1\76\1\141\2\163\1\52\5\uffff\1\103\1"
-        "\123\1\125\1\144\1\143\1\162\1\163\1\124\1\117\1\157\1\122\1\157"
-        "\1\165\1\164\1\144\1\156\1\163\1\145\1\uffff\1\162\1\166\1\157\1"
-        "\0\1\uffff\1\55\1\103\1\102\1\165\1\164\1\55\1\157\1\143\1\55\1"
-        "\101\1\155\1\111\2\162\1\160\1\145\1\141\1\164\1\141\1\161\1\55"
-        "\1\156\1\0\1\uffff\1\55\1\114\1\160\1\151\2\55\1\uffff\1\124\1\125"
-        "\1\116\1\145\1\143\1\165\1\162\1\155\1\55\1\164\1\165\1\uffff\1"
-        "\55\1\105\1\154\1\156\1\55\1\156\1\107\1\103\1\145\1\164\1\40\1"
-        "\145\1\uffff\2\145\1\55\1\151\1\141\1\151\1\55\1\157\1\55\1\120"
-        "\1\uffff\1\103\1\114\1\164\1\143\1\164\1\170\1\154\1\uffff\1\141"
-        "\1\157\1\151\1\55\1\141\1\151\1\164\1\165\1\162\1\154\2\164\1\157"
-        "\1\151\1\155\1\164\1\165\2\145\1\156\1\155\1\156\1\151\1\155\1\162"
-        "\2\55\1\145\1\163\1\164\1\156\1\141\2\uffff\2\55\1\151\1\55\1\154"
-        "\2\uffff\1\157\1\uffff\1\55\1\156\1\uffff\1\163\1\55\1\uffff"
+        "\1\11\1\55\3\uffff\1\123\1\105\1\163\1\145\1\116\1\114\1\124\1\117"
+        "\1\165\1\162\1\145\1\141\4\uffff\1\76\1\141\2\163\1\52\5\uffff\1"
+        "\103\1\123\1\125\1\144\1\143\1\162\1\163\1\124\1\117\1\157\1\122"
+        "\1\157\1\165\1\116\1\164\1\144\1\156\1\163\1\145\1\uffff\1\162\1"
+        "\166\1\157\1\0\1\uffff\1\55\1\103\1\102\1\165\1\164\1\55\1\157\1"
+        "\143\1\55\1\101\1\155\1\111\2\162\1\107\1\160\1\145\1\141\1\164"
+        "\1\141\1\161\1\55\1\156\1\0\1\uffff\1\55\1\114\1\160\1\151\2\55"
+        "\1\uffff\1\124\1\125\1\116\1\145\1\143\1\55\1\165\1\162\1\155\1"
+        "\55\1\164\1\165\1\uffff\1\55\1\105\1\154\1\156\1\55\1\156\1\107"
+        "\1\103\1\145\1\164\1\40\1\145\1\uffff\2\145\1\55\1\151\1\141\1\151"
+        "\1\55\1\157\1\55\1\120\1\uffff\1\103\1\114\1\164\1\143\1\164\1\170"
+        "\1\154\1\uffff\1\141\1\157\1\151\1\55\1\141\1\151\1\164\1\165\1"
+        "\162\1\154\2\164\1\157\1\151\1\155\1\164\1\165\2\145\1\156\1\155"
+        "\1\156\1\151\1\155\1\162\2\55\1\145\1\163\1\164\1\156\1\141\2\uffff"
+        "\2\55\1\151\1\55\1\154\2\uffff\1\157\1\uffff\1\55\1\156\1\uffff"
+        "\1\163\1\55\1\uffff"
         )
 
     DFA10_max = DFA.unpack(
-        "\2\174\3\uffff\1\123\1\145\1\166\1\145\1\116\1\162\1\164\1\165\1"
-        "\162\1\145\1\162\4\uffff\1\76\1\141\2\163\1\57\5\uffff\1\103\1\123"
-        "\1\125\1\163\1\143\1\162\1\163\1\124\1\117\1\157\1\122\1\157\1\165"
-        "\1\164\1\144\1\156\1\163\1\145\1\uffff\1\162\1\166\1\157\1\uffff"
-        "\1\uffff\1\174\1\103\1\102\1\165\1\164\1\174\1\157\1\143\1\174\1"
-        "\101\1\155\1\111\2\162\1\160\1\145\1\141\1\164\1\141\1\161\1\174"
-        "\1\156\1\uffff\1\uffff\1\174\1\114\1\160\1\151\2\174\1\uffff\1\124"
-        "\1\125\1\116\1\145\1\143\1\165\1\162\1\155\1\174\1\164\1\165\1\uffff"
-        "\1\174\1\105\1\154\1\156\1\174\1\156\1\107\1\103\1\145\1\164\1\40"
-        "\1\145\1\uffff\2\145\1\174\1\151\1\141\1\151\1\174\1\157\1\174\1"
-        "\120\1\uffff\1\103\1\114\1\164\1\143\1\164\1\170\1\154\1\uffff\1"
-        "\141\1\157\1\151\1\174\1\141\1\151\1\164\1\165\1\162\1\154\2\164"
-        "\1\157\1\151\1\155\1\164\1\165\2\145\1\156\1\155\1\156\1\151\1\155"
-        "\1\162\2\174\1\145\1\163\1\164\1\156\1\141\2\uffff\2\174\1\151\1"
-        "\174\1\154\2\uffff\1\157\1\uffff\1\174\1\156\1\uffff\1\163\1\174"
-        "\1\uffff"
+        "\2\174\3\uffff\1\123\1\145\1\166\1\145\1\116\1\162\1\164\1\117\1"
+        "\165\1\162\1\145\1\162\4\uffff\1\76\1\141\2\163\1\57\5\uffff\1\103"
+        "\1\123\1\125\1\163\1\143\1\162\1\163\1\124\1\117\1\157\1\122\1\157"
+        "\1\165\1\116\1\164\1\144\1\156\1\163\1\145\1\uffff\1\162\1\166\1"
+        "\157\1\uffff\1\uffff\1\174\1\103\1\102\1\165\1\164\1\174\1\157\1"
+        "\143\1\174\1\101\1\155\1\111\2\162\1\107\1\160\1\145\1\141\1\164"
+        "\1\141\1\161\1\174\1\156\1\uffff\1\uffff\1\174\1\114\1\160\1\151"
+        "\2\174\1\uffff\1\124\1\125\1\116\1\145\1\143\1\174\1\165\1\162\1"
+        "\155\1\174\1\164\1\165\1\uffff\1\174\1\105\1\154\1\156\1\174\1\156"
+        "\1\107\1\103\1\145\1\164\1\40\1\145\1\uffff\2\145\1\174\1\151\1"
+        "\141\1\151\1\174\1\157\1\174\1\120\1\uffff\1\103\1\114\1\164\1\143"
+        "\1\164\1\170\1\154\1\uffff\1\141\1\157\1\151\1\174\1\141\1\151\1"
+        "\164\1\165\1\162\1\154\2\164\1\157\1\151\1\155\1\164\1\165\2\145"
+        "\1\156\1\155\1\156\1\151\1\155\1\162\2\174\1\145\1\163\1\164\1\156"
+        "\1\141\2\uffff\2\174\1\151\1\174\1\154\2\uffff\1\157\1\uffff\1\174"
+        "\1\156\1\uffff\1\163\1\174\1\uffff"
         )
 
     DFA10_accept = DFA.unpack(
-        "\2\uffff\1\2\1\3\1\4\13\uffff\1\17\1\20\1\21\1\22\5\uffff\1\30\1"
-        "\31\1\32\1\1\1\2\22\uffff\1\23\4\uffff\1\27\27\uffff\1\5\6\uffff"
-        "\1\6\13\uffff\1\24\14\uffff\1\14\12\uffff\1\11\7\uffff\1\25\40\uffff"
+        "\2\uffff\1\2\1\3\1\4\14\uffff\1\17\1\20\1\21\1\22\5\uffff\1\30\1"
+        "\31\1\32\1\1\1\2\23\uffff\1\23\4\uffff\1\27\30\uffff\1\5\6\uffff"
+        "\1\6\14\uffff\1\24\14\uffff\1\14\12\uffff\1\11\7\uffff\1\25\40\uffff"
         "\1\16\1\26\5\uffff\1\10\1\12\1\uffff\1\13\2\uffff\1\15\2\uffff\1"
         "\7"
         )
 
     DFA10_special = DFA.unpack(
-        "\64\uffff\1\1\27\uffff\1\0\145\uffff"
+        "\66\uffff\1\0\30\uffff\1\1\146\uffff"
         )
 
 
     DFA10_transition = [
-        DFA.unpack("\1\31\1\2\2\uffff\1\31\22\uffff\1\31\1\uffff\1\33\5\uffff"
-        "\1\21\1\22\1\uffff\1\3\1\4\1\24\1\32\1\30\12\32\1\20\1\23\5\uffff"
-        "\1\5\1\32\1\17\1\6\1\32\1\12\2\32\1\11\5\32\1\14\2\32\1\16\1\13"
-        "\7\32\4\uffff\1\32\1\uffff\1\7\1\32\1\26\1\10\5\32\1\27\2\32\2\1"
-        "\1\15\1\25\2\32\1\1\7\32\1\uffff\1\32"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
+        DFA.unpack("\1\32\1\2\2\uffff\1\32\22\uffff\1\32\1\uffff\1\34\5\uffff"
+        "\1\22\1\23\1\uffff\1\3\1\4\1\25\1\33\1\31\12\33\1\21\1\24\5\uffff"
+        "\1\5\1\33\1\20\1\6\1\33\1\12\2\33\1\11\2\33\1\14\2\33\1\15\2\33"
+        "\1\17\1\13\7\33\4\uffff\1\33\1\uffff\1\7\1\33\1\27\1\10\5\33\1\30"
+        "\2\33\2\1\1\16\1\26\2\33\1\1\7\33\1\uffff\1\33"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
-        DFA.unpack("\1\36"),
-        DFA.unpack("\1\37\11\uffff\1\40\25\uffff\1\41"),
-        DFA.unpack("\1\42\2\uffff\1\43"),
-        DFA.unpack("\1\44"),
+        DFA.unpack("\1\37"),
+        DFA.unpack("\1\40\11\uffff\1\41\25\uffff\1\42"),
+        DFA.unpack("\1\43\2\uffff\1\44"),
         DFA.unpack("\1\45"),
-        DFA.unpack("\1\46\45\uffff\1\47"),
-        DFA.unpack("\1\50\32\uffff\1\52\4\uffff\1\51"),
-        DFA.unpack("\1\53"),
+        DFA.unpack("\1\46"),
+        DFA.unpack("\1\47\45\uffff\1\50"),
+        DFA.unpack("\1\51\32\uffff\1\53\4\uffff\1\52"),
         DFA.unpack("\1\54"),
         DFA.unpack("\1\55"),
-        DFA.unpack("\1\56\20\uffff\1\57"),
+        DFA.unpack("\1\56"),
+        DFA.unpack("\1\57"),
+        DFA.unpack("\1\60\20\uffff\1\61"),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
-        DFA.unpack("\1\60"),
-        DFA.unpack("\1\61"),
         DFA.unpack("\1\62"),
         DFA.unpack("\1\63"),
-        DFA.unpack("\1\65\4\uffff\1\64"),
+        DFA.unpack("\1\64"),
+        DFA.unpack("\1\65"),
+        DFA.unpack("\1\67\4\uffff\1\66"),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
         DFA.unpack(""),
-        DFA.unpack("\1\66"),
-        DFA.unpack("\1\67"),
         DFA.unpack("\1\70"),
-        DFA.unpack("\1\71\16\uffff\1\72"),
-        DFA.unpack("\1\73"),
-        DFA.unpack("\1\74"),
+        DFA.unpack("\1\71"),
+        DFA.unpack("\1\72"),
+        DFA.unpack("\1\73\16\uffff\1\74"),
         DFA.unpack("\1\75"),
         DFA.unpack("\1\76"),
         DFA.unpack("\1\77"),
@@ -1271,28 +1280,28 @@ class SparkLexer(Lexer):
         DFA.unpack("\1\106"),
         DFA.unpack("\1\107"),
         DFA.unpack("\1\110"),
-        DFA.unpack(""),
         DFA.unpack("\1\111"),
         DFA.unpack("\1\112"),
         DFA.unpack("\1\113"),
-        DFA.unpack("\55\65\15\114\7\65\32\114\4\65\1\114\1\65\32\114\1\65"
-        "\1\114\uff83\65"),
         DFA.unpack(""),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
+        DFA.unpack("\1\114"),
+        DFA.unpack("\1\115"),
         DFA.unpack("\1\116"),
-        DFA.unpack("\1\117"),
-        DFA.unpack("\1\120"),
+        DFA.unpack("\55\67\15\117\7\67\32\117\4\67\1\117\1\67\32\117\1\67"
+        "\1\117\uff83\67"),
+        DFA.unpack(""),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\121"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
         DFA.unpack("\1\122"),
         DFA.unpack("\1\123"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
+        DFA.unpack("\1\124"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\125"),
         DFA.unpack("\1\126"),
-        DFA.unpack("\1\127"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\130"),
         DFA.unpack("\1\131"),
         DFA.unpack("\1\132"),
@@ -1301,81 +1310,83 @@ class SparkLexer(Lexer):
         DFA.unpack("\1\135"),
         DFA.unpack("\1\136"),
         DFA.unpack("\1\137"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
+        DFA.unpack("\1\140"),
         DFA.unpack("\1\141"),
-        DFA.unpack("\55\65\15\114\7\65\32\114\4\65\1\114\1\65\32\114\1\65"
-        "\1\114\uff83\65"),
-        DFA.unpack(""),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
         DFA.unpack("\1\142"),
         DFA.unpack("\1\143"),
-        DFA.unpack("\1\144"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
-        DFA.unpack(""),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\145"),
+        DFA.unpack("\55\67\15\117\7\67\32\117\4\67\1\117\1\67\32\117\1\67"
+        "\1\117\uff83\67"),
+        DFA.unpack(""),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\146"),
         DFA.unpack("\1\147"),
         DFA.unpack("\1\150"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
+        DFA.unpack(""),
         DFA.unpack("\1\151"),
         DFA.unpack("\1\152"),
         DFA.unpack("\1\153"),
         DFA.unpack("\1\154"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
+        DFA.unpack("\1\155"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\156"),
         DFA.unpack("\1\157"),
-        DFA.unpack(""),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
         DFA.unpack("\1\160"),
-        DFA.unpack("\1\161"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\162"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
         DFA.unpack("\1\163"),
+        DFA.unpack(""),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\164"),
         DFA.unpack("\1\165"),
         DFA.unpack("\1\166"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\167"),
         DFA.unpack("\1\170"),
         DFA.unpack("\1\171"),
-        DFA.unpack(""),
         DFA.unpack("\1\172"),
         DFA.unpack("\1\173"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
         DFA.unpack("\1\174"),
         DFA.unpack("\1\175"),
-        DFA.unpack("\1\176"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
-        DFA.unpack("\1\177"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
-        DFA.unpack("\1\u0081"),
         DFA.unpack(""),
+        DFA.unpack("\1\176"),
+        DFA.unpack("\1\177"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
+        DFA.unpack("\1\u0080"),
+        DFA.unpack("\1\u0081"),
         DFA.unpack("\1\u0082"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\u0083"),
-        DFA.unpack("\1\u0084"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\u0085"),
+        DFA.unpack(""),
         DFA.unpack("\1\u0086"),
         DFA.unpack("\1\u0087"),
         DFA.unpack("\1\u0088"),
-        DFA.unpack(""),
         DFA.unpack("\1\u0089"),
         DFA.unpack("\1\u008a"),
         DFA.unpack("\1\u008b"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
         DFA.unpack("\1\u008c"),
+        DFA.unpack(""),
         DFA.unpack("\1\u008d"),
         DFA.unpack("\1\u008e"),
         DFA.unpack("\1\u008f"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\u0090"),
         DFA.unpack("\1\u0091"),
         DFA.unpack("\1\u0092"),
@@ -1393,36 +1404,40 @@ class SparkLexer(Lexer):
         DFA.unpack("\1\u009e"),
         DFA.unpack("\1\u009f"),
         DFA.unpack("\1\u00a0"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
+        DFA.unpack("\1\u00a1"),
+        DFA.unpack("\1\u00a2"),
         DFA.unpack("\1\u00a3"),
         DFA.unpack("\1\u00a4"),
-        DFA.unpack("\1\u00a5"),
-        DFA.unpack("\1\u00a6"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\u00a7"),
-        DFA.unpack(""),
-        DFA.unpack(""),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
+        DFA.unpack("\1\u00a8"),
+        DFA.unpack("\1\u00a9"),
         DFA.unpack("\1\u00aa"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
-        DFA.unpack("\1\u00ac"),
+        DFA.unpack("\1\u00ab"),
         DFA.unpack(""),
         DFA.unpack(""),
-        DFA.unpack("\1\u00ad"),
-        DFA.unpack(""),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
-        DFA.unpack("\1\u00af"),
-        DFA.unpack(""),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
+        DFA.unpack("\1\u00ae"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("\1\u00b0"),
-        DFA.unpack("\15\32\7\uffff\32\32\4\uffff\1\32\1\uffff\32\32\1\uffff"
-        "\1\32"),
+        DFA.unpack(""),
+        DFA.unpack(""),
+        DFA.unpack("\1\u00b1"),
+        DFA.unpack(""),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
+        DFA.unpack("\1\u00b3"),
+        DFA.unpack(""),
+        DFA.unpack("\1\u00b4"),
+        DFA.unpack("\15\33\7\uffff\32\33\4\uffff\1\33\1\uffff\32\33\1\uffff"
+        "\1\33"),
         DFA.unpack("")
     ]
 
@@ -1443,32 +1458,32 @@ class SparkLexer(Lexer):
             _s = s
 
             if s == 0: 
-                LA10_76 = input.LA(1)
+                LA10_54 = input.LA(1)
 
                 s = -1
-                if ((0 <= LA10_76 <= 44) or (58 <= LA10_76 <= 64) or (125 <= LA10_76 <= 65535) or LA10_76 in {91, 92, 93, 94, 96, 123}):
-                    s = 53
+                if ((45 <= LA10_54 <= 57) or (65 <= LA10_54 <= 90) or (97 <= LA10_54 <= 122) or LA10_54 in {95, 124}):
+                    s = 79
 
-                elif ((45 <= LA10_76 <= 57) or (65 <= LA10_76 <= 90) or (97 <= LA10_76 <= 122) or LA10_76 in {95, 124}):
-                    s = 76
+                elif ((0 <= LA10_54 <= 44) or (58 <= LA10_54 <= 64) or (125 <= LA10_54 <= 65535) or LA10_54 in {91, 92, 93, 94, 96, 123}):
+                    s = 55
 
                 else:
-                    s = 26
+                    s = 27
 
                 if s >= 0:
                     return s
             elif s == 1: 
-                LA10_52 = input.LA(1)
+                LA10_79 = input.LA(1)
 
                 s = -1
-                if ((45 <= LA10_52 <= 57) or (65 <= LA10_52 <= 90) or (97 <= LA10_52 <= 122) or LA10_52 in {95, 124}):
-                    s = 76
+                if ((0 <= LA10_79 <= 44) or (58 <= LA10_79 <= 64) or (125 <= LA10_79 <= 65535) or LA10_79 in {91, 92, 93, 94, 96, 123}):
+                    s = 55
 
-                elif ((0 <= LA10_52 <= 44) or (58 <= LA10_52 <= 64) or (125 <= LA10_52 <= 65535) or LA10_52 in {91, 92, 93, 94, 96, 123}):
-                    s = 53
+                elif ((45 <= LA10_79 <= 57) or (65 <= LA10_79 <= 90) or (97 <= LA10_79 <= 122) or LA10_79 in {95, 124}):
+                    s = 79
 
                 else:
-                    s = 26
+                    s = 27
 
                 if s >= 0:
                     return s

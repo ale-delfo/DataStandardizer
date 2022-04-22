@@ -1,7 +1,7 @@
 from mimetypes import types_map
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import lit, desc, asc, row_number, col 
-from pyspark.sql.types import IntegerType, FloatType, DoubleType, StringType
+from pyspark.sql.functions import lit, desc, asc, row_number, col, from_unixtime
+from pyspark.sql.types import IntegerType, LongType, FloatType, DoubleType, StringType
 from pyspark.sql import Window
 
 #--------------------------
@@ -17,7 +17,14 @@ typesMap = {
     "INT": IntegerType,
     "FLOAT": FloatType,
     "DOUBLE": DoubleType,
-    "STRING": StringType
+    "STRING": StringType,
+    "LONG": LongType
+}
+
+epochDividerMap = {
+    "s": 1,
+    "m": 1000,
+    "n": 1000000000,
 }
 
 class Standardizer:
@@ -100,7 +107,8 @@ class Standardizer:
     def fromUnixtime(self, *args):
         format = args[0]
         column = args[1]
-        print(f'Creating timestamp from {column} in format {format}')
+        print(f'Creating timestamp from {column} in format {format}, dividing by {epochDividerMap[format]}')
+        self.df = self.df.withColumn(column, from_unixtime(col(column)/lit(epochDividerMap[format])))
 
     #--------------------------
     # Utils methods 
