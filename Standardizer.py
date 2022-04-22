@@ -24,6 +24,7 @@ class Standardizer:
 
     actions = []
     columnsToStore = '*'
+    outputPartitions = []
 
     #--------------------------
     # Core methods 
@@ -47,7 +48,7 @@ class Standardizer:
         self.df = self.spark.read.format(self.source_format).option('header',True).load(self.source)
 
     def writeDataFrame(self):
-        self.df.repartition(1).write.format(self.destination_format).save(self.destination)
+        self.df.repartition(1).write.partitionBy(self.outputPartitions).format(self.destination_format).save(self.destination)
 
     def normalizeColumns(self):
         for column in self.df.columns:
@@ -96,6 +97,11 @@ class Standardizer:
         type = args[1]
         self.df = self.df.withColumn(args[0], col(args[0]).cast(typesMap[type]()))
 
+    def fromUnixtime(self, *args):
+        format = args[0]
+        column = args[1]
+        print(f'Creating timestamp from {column} in format {format}')
+
     #--------------------------
     # Utils methods 
     #--------------------------
@@ -109,3 +115,4 @@ class Standardizer:
         i = 1
         for action in self.actions:
                     print(f"{i}. {action.function} - {action.args}")
+                    i+=1

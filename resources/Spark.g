@@ -18,10 +18,10 @@ options {
 
 // Specifica del parser
 startRule
-	:	source_definition
-		destination_definition
-		(action SC)*
-		//EOF
+	:	source_definition NEWLINE
+		destination_definition NEWLINE+
+		(PLUS action)*
+		EOF
 	;
 	
 source_definition
@@ -38,17 +38,30 @@ destination_definition
 	;
 	
 action 	:
-		rename_action |
+		(rename_action |
 		cast_action |
 		create_literal_action |
 		deduplicate_action |
-		store_columns_action
+		store_columns_action |
+		from_unixtime_action |
+		output_partitions_action
+		)
+		(NEWLINE|EOF)
 	;
 	
 	
-//from_unixtime_action
-//	:	FROM_UNIXTIME LP x=TEXT RP 
-//	
+from_unixtime_action
+	:	FROM_UNIXTIME LP x=EPOCH_FORMAT RP LP y=TEXT RP  
+		{self.standardizer.addAction(self.standardizer.fromUnixtime,$x.text,$y.text)}
+	;	
+	
+output_partitions_action
+	:	OUTPUT_PARTITIONS LP (x+=TEXT (COMMA x+=TEXT)*) RP
+		{
+		list = [tk.text for tk in $x]
+		self.standardizer.outputPartitions = list
+		}
+	;	
 
 store_columns_action
 	:	STORE_COLUMNS LP (x+=TEXT (COMMA x+=TEXT)*) RP
@@ -86,13 +99,29 @@ rename_action
 	{self.standardizer.addAction(self.standardizer.renameColumn,$x.text,$y.text)}
 	;
 
-// Specifica del lexer
+// Specifica del lexex
+
+EPOCH_FORMAT
+	:	's' | 'm' | 'n'
+	; 
+
+NEWLINE :	'\n';
+
+PLUS	:	'+';
 
 COMMA	:	',';
 
 SORT 	:	'ASC' | 'DESC' | 'asc' | 'desc' ;
 
 TYPE 	:	'INT' | 'FLOAT' | 'DOUBLE' | 'STRING' ;
+
+OUTPUT_PARTITIONS
+	:	'OutputPartitions'
+	;
+
+FROM_UNIXTIME
+	:	'FromUnixtime'
+	;
 
 ORDER_BY
 	:	'order by';

@@ -1,7 +1,9 @@
 Source: resources/titanic.csv (csv)
 Destination: output (json)
 
-Cast(Fare -> INT);
-Deduplicate(Sex) order by Parents/Children_Aboard desc;
-CreateLiteral(LiteralColumn)("Alessandro");
-RenameColumn(Sex -> Sesso);
+//+ Cast(Fare -> INT)
+//+ Deduplicate(Sex) order by Parents/Children_Aboard desc
+//+ CreateLiteral(LiteralColumn)("Alessandro")
+//+ RenameColumn(Sex -> Sesso)
++ FromUnixtime(s)(Col1)
++ OutputPartitions(Sex)
