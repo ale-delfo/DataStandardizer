@@ -2,4 +2,5 @@ Source: resources/titanic.csv (csv)
 Destination: output (json)
 
 Deduplicate(Sex) order by Parents/Children_Aboard desc;
-StoreColumns(Name);
+CreateLiteral(LiteralColumn, "Alessandro");
+StoreColumns(LiteralColumn);
