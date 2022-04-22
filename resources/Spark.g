@@ -1,7 +1,5 @@
 grammar Spark;
 
-// La grammatica non supporta nomi di colonne con spazi 
-
 options {
   language = Python3;
   k = 1;
@@ -23,7 +21,7 @@ startRule
 	:	source_definition
 		destination_definition
 		(action SC)*
-		EOF
+		//EOF
 	;
 	
 source_definition
@@ -45,8 +43,12 @@ action 	:
 		create_literal_action |
 		deduplicate_action |
 		store_columns_action
-	; 
+	;
 	
+	
+//from_unixtime_action
+//	:	FROM_UNIXTIME LP x=TEXT RP 
+//	
 
 store_columns_action
 	:	STORE_COLUMNS LP (x+=TEXT (COMMA x+=TEXT)*) RP
@@ -58,7 +60,8 @@ store_columns_action
 
 cast_action
 	:	
-	CAST_COLUMN LP TEXT RP LP TYPE RIGHT_ARROW TYPE RP
+	CAST_COLUMN LP x=TEXT RIGHT_ARROW y=TYPE RP
+	{self.standardizer.addAction(self.standardizer.castColumn,$x.text,$y.text)}
 	;
 	
 create_literal_action

@@ -1,6 +1,7 @@
+from mimetypes import types_map
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import lit, desc, asc, row_number
-from pyspark.sql.types import IntegerType, FloatType, DoubleType
+from pyspark.sql.functions import lit, desc, asc, row_number, col 
+from pyspark.sql.types import IntegerType, FloatType, DoubleType, StringType
 from pyspark.sql import Window
 
 #--------------------------
@@ -11,6 +12,13 @@ class Action:
     def __init__(self, function, *args):
         self.function = function
         self.args = args
+
+typesMap = {
+    "INT": IntegerType,
+    "FLOAT": FloatType,
+    "DOUBLE": DoubleType,
+    "STRING": StringType
+}
 
 class Standardizer:
 
@@ -82,6 +90,11 @@ class Standardizer:
     def storeColumns(self, *args):
         print(f'Storing columns {self.columnsToStore}')
         self.df = self.df.select(self.columnsToStore)
+
+    def castColumn(self, *args):
+        print(f'Casting column {args[0]} to {args[1]}')
+        type = args[1]
+        self.df = self.df.withColumn(args[0], col(args[0]).cast(typesMap[type]()))
 
     #--------------------------
     # Utils methods 
