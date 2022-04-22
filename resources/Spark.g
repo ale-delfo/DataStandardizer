@@ -19,9 +19,9 @@ options {
 // Specifica del parser
 startRule
 	:	source_definition NEWLINE
-		destination_definition NEWLINE+
-		(PLUS action)*
-		 EOF
+		destination_definition NEWLINE*
+		(PLUS action (EOF|NEWLINE))*
+		EOF
 	;
 	
 source_definition
