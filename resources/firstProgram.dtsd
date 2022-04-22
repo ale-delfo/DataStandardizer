@@ -1,7 +1,5 @@
-Source: bello/figo.csv (csv)
-Destination: output (parquet)
+Source: resources/titanic.csv (csv)
+Destination: output (json)
 
-Deduplicate(ciao);
-RenameColumn(Name -> Nomiiii);
-Cast(ID)(INT -> STRING);
-CreateLiteral(CiaoCiao)("hey boy");
+Deduplicate(Sex) order by Parents/Children_Aboard desc;
+StoreColumns(Name);

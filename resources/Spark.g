@@ -1,5 +1,7 @@
 grammar Spark;
 
+// La grammatica non supporta nomi di colonne con spazi 
+
 options {
   language = Python3;
   k = 1;
@@ -42,49 +44,58 @@ action 	:
 		cast_action |
 		create_literal_action |
 		deduplicate_action |
-		normalize_action
-		
+		store_columns_action
 	; 
 	
 
-
+store_columns_action
+	:	STORE_COLUMNS LP (x+=TEXT (COMMA x+=TEXT)*) RP
+		{
+		list = [tk.text for tk in $x]
+		self.standardizer.columnsToStore = list
+		}
+	;
 
 cast_action
 	:	
-	CAST_COLUMN LP (TEXT|COLUMN_SQUARED) RP LP TYPE RIGHT_ARROW TYPE RP
+	CAST_COLUMN LP TEXT RP LP TYPE RIGHT_ARROW TYPE RP
 	;
 	
 create_literal_action
 	:	
-	CREATE_LITERAL LP x=(TEXT|COLUMN_SQUARED) RP LP y=STRING RP
+	CREATE_LITERAL LP x=TEXT RP LP y=STRING RP
 	{self.standardizer.addAction(self.standardizer.createLiteral,$x.text,$y.text)}
 	;
 	
 deduplicate_action
 	:
-	DEDUPLICATE LP (TEXT|COLUMN_SQUARED) (COMMA (TEXT|COLUMN_SQUARED))* RP
+	DEDUPLICATE LP (x+=TEXT (COMMA x+=TEXT)*) RP ORDER_BY y=TEXT z=SORT
+	{
+	list = [tk.text for tk in $x]
+	self.standardizer.addAction(self.standardizer.deduplicate,list,$y.text,$z.text)
+	}
 	;
 	
 
 rename_action
 	:	
-	RENAME_COLUMN LP x=(TEXT|COLUMN_SQUARED) RIGHT_ARROW y=(TEXT|COLUMN_SQUARED) RP
+	RENAME_COLUMN LP x=TEXT RIGHT_ARROW y=TEXT RP
 	{self.standardizer.addAction(self.standardizer.renameColumn,$x.text,$y.text)}
-	;
-	
-normalize_action
-	:	NORMALIZE_COLUMNS
-	{self.standardizer.normalizeColumns=True}
 	;
 
 // Specifica del lexer
 
 COMMA	:	',';
 
+SORT 	:	'ASC' | 'DESC' | 'asc' | 'desc' ;
+
 TYPE 	:	'INT' | 'FLOAT' | 'DOUBLE' | 'STRING' ;
 
-UNIX_TIME_UNIT
-	:	's' | 'm' | 'n' ;
+ORDER_BY
+	:	'order by';
+
+STORE_COLUMNS
+	:	'StoreColumns';
 
 RENAME_COLUMN
 	:	'RenameColumn';
@@ -99,11 +110,6 @@ CREATE_LITERAL
 DEDUPLICATE
 	:	'Deduplicate';
 	
-NORMALIZE_COLUMNS
-	:	
-	'Normalize'
-	;
-
 // Specifica del lexer
 CL	:	':';
 LP	:	'(';
@@ -139,9 +145,7 @@ WS  :   ( ' '
     ;
     
     
-COLUMN_SQUARED:	'[' TEXT (TEXT|' ')* ']' ;
-
-TEXT 	:	('0'..'9'|'a'..'z'|'A'..'Z'|'-'|'_'|'/'|'|'|'.')+
+TEXT    :	('0'..'9'|'a'..'z'|'A'..'Z'|'-'|'_'|'/'|'|'|'.')+
         ;
     
 STRING 	:	'"' ( options {greedy=false;} : . )* '"' ;

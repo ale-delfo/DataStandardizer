@@ -1,5 +1,7 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import lit
+from pyspark.sql.functions import lit, desc, asc, row_number
+from pyspark.sql.types import IntegerType, FloatType, DoubleType
+from pyspark.sql import Window
 
 #--------------------------
 # General action definition 
@@ -13,7 +15,7 @@ class Action:
 class Standardizer:
 
     actions = []
-    normalizeColumns = False
+    columnsToStore = '*'
 
     #--------------------------
     # Core methods 
@@ -44,15 +46,15 @@ class Standardizer:
             self.df = self.df.withColumnRenamed(column, column.replace(' ','_'))
 
     def execute(self):
-        print('Execute method')
+        print('Executing actions...')
         self.spark = SparkSession.builder.getOrCreate()
         self.readDataFrame()
+        self.normalizeColumns()
         for action in self.actions:
             action.function(*action.args)
-        if self.normalizeColumns or self.destination_format == 'parquet':
-            print('Normalizing activated')
-            self.normalizeColumns()
+        self.storeColumns()
         self.writeDataFrame()
+        print('Done.')
 
     #--------------------------
     # Actions methods 
@@ -63,13 +65,28 @@ class Standardizer:
         self.df = self.df.withColumn(args[0], lit(args[1].replace('"','')))
 
     def renameColumn(self, *args):
-        print(f'Renaming columng {args[0]} to {args[1]}')
+        print(f'Renaming column {args[0]} to {args[1]}')
         self.df = self.df.withColumnRenamed(args[0], args[1])
+
+    def deduplicate(self, *args):
+        columns = args[0]
+        ordering_column = args[1]
+        orientation = args[2]
+        if orientation in ['desc','DESC']:
+            window = Window.partitionBy(columns).orderBy(desc(ordering_column))
+        else:
+            window = Window.partitionBy(columns).orderBy(asc(ordering_column))
+        print(f'Deduplicating dataframe with same {args[0]} columns ordering by {args[1]} orientation {args[2]}')
+        self.df = self.df.withColumn('rank', row_number().over(window)).where('rank = 1').drop('rank')
+
+    def storeColumns(self, *args):
+        print(f'Storing columns {self.columnsToStore}')
+        self.df = self.df.select(self.columnsToStore)
 
     #--------------------------
     # Utils methods 
     #--------------------------
-
+    
     def toString(self):
         print(f'Standardizer source {self.source}')
         print(f'Standardizer source format {self.source_format}')
