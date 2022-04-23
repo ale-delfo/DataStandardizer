@@ -18,8 +18,8 @@ options {
 
 // Specifica del parser
 startRule
-	:	source_definition SC
-		destination_definition SC
+	:	source_definition NEWLINE
+		destination_definition NEWLINE+
 		(action)*
 		NEWLINE*
 		EOF
