@@ -31,6 +31,7 @@ epochDividerMap = {
 class Standardizer:
 
     actions = []
+    overwrite = False
     columnsToStore = '*'
     outputPartitions = []
 
@@ -56,7 +57,10 @@ class Standardizer:
         self.df = self.spark.read.format(self.source_format).option('header',True).load(self.source)
 
     def writeDataFrame(self):
-        self.df.repartition(1).write.partitionBy(self.outputPartitions).format(self.destination_format).save(self.destination)
+        if not self.overwrite:
+            self.df.repartition(1).write.partitionBy(self.outputPartitions).format(self.destination_format).save(self.destination)
+        else:
+            self.df.repartition(1).write.mode('overwrite').partitionBy(self.outputPartitions).format(self.destination_format).save(self.destination)
 
     def normalizeColumns(self):
         for column in self.df.columns:
@@ -123,6 +127,7 @@ class Standardizer:
         print(f'Standardizer source format {self.source_format}')
         print(f'Standardizer destination {self.destination}')
         print(f'Standardizer destination format {self.destination_format}')
+        print('Overwrite activated' if self.overwrite else "Overwrite not activated")
         print(f'Standardizer actions:')
         i = 1
         for action in self.actions:

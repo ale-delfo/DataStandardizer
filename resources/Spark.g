@@ -19,7 +19,7 @@ options {
 // Specifica del parser
 startRule
 	:	source_definition NEWLINE
-		destination_definition NEWLINE+
+		(destination_definition) NEWLINE+
 		(action)*
 		NEWLINE*
 		EOF
@@ -33,8 +33,10 @@ source_definition
 
 destination_definition
 	:	
-	  DESTINATION CL destination=TEXT LP format=FILE_FORMAT RP
-	  {self.standardizer.setDestination($destination.text, $format.text)}
+	  DESTINATION CL destination=TEXT LP format=FILE_FORMAT RP overwrite=OVERWRITE?
+	  {self.standardizer.setDestination($destination.text, $format.text)
+	  self.standardizer.overwrite = True if $overwrite else False
+	  }
 
 	;
 	
@@ -122,9 +124,9 @@ SORT 	:	'ASC' | 'DESC' | 'asc' | 'desc' ;
 
 TYPE 	:	'INT' | 'FLOAT' | 'DOUBLE' | 'STRING' | 'LONG' ;
 
-//SORT_OUTPUT
-//	:	'SortOutput'
-//	;
+OVERWRITE
+	:	'overwrite'
+	;
 
 OUTPUT_PARTITIONS
 	:	'OutputPartitions'
