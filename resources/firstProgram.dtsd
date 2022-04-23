@@ -3,8 +3,8 @@ Destination: output (json)
 
 + Cast(Fare -> INT)
 //+ Deduplicate(Sex) order by Parents/Children_Aboard desc
-//+ CreateLiteral(LiteralColumn)("1650644337")
-//+ Cast(LiteralColumn -> LONG)
++ CreateLiteral(LiteralColumn)("1650644337")
++ Cast(LiteralColumn -> LONG)
 //+ RenameColumn(Sex -> Sesso)
-//+ FromUnixtime(s)(LiteralColumn)
++ FromUnixtime(s)(LiteralColumn)
 //+ OutputPartitions(Sex)

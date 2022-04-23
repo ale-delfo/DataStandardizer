@@ -18,9 +18,10 @@ options {
 
 // Specifica del parser
 startRule
-	:	source_definition NEWLINE
-		destination_definition NEWLINE*
-		(PLUS action (EOF|NEWLINE))*
+	:	source_definition SC
+		destination_definition SC
+		(action)*
+		NEWLINE*
 		EOF
 	;
 	
@@ -38,6 +39,7 @@ destination_definition
 	;
 	
 action 	:
+		PLUS
 		(rename_action |
 		cast_action |
 		create_literal_action |
@@ -46,7 +48,7 @@ action 	:
 		from_unixtime_action |
 		output_partitions_action 
 		)
-		(NEWLINE|EOF)
+		NEWLINE
 	;
 	
 
@@ -107,7 +109,7 @@ rename_action
 // Specifica del lexex
 
 EPOCH_FORMAT
-	:	's' | 'm' | 'n'
+	:	's' | 'm' | 'u' | 'n'
 	; 
 
 NEWLINE :	'\n';
@@ -174,7 +176,7 @@ DESTINATION
 	:	'Destination';
 
 COMMENT
-    :   '//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}
+    :   '//' ~('\n'|'\r')* '\r'? ('\n'|EOF) {$channel=HIDDEN;}
     |   '/*' ( options {greedy=false;} : . )* '*/' {$channel=HIDDEN;}
     ;
 
