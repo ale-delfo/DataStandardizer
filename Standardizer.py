@@ -1,4 +1,3 @@
-from mimetypes import types_map
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import lit, desc, asc, row_number, col, from_unixtime, to_timestamp
 from pyspark.sql.types import IntegerType, LongType, FloatType, DoubleType, StringType
