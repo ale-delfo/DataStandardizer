@@ -1,4 +1,4 @@
-Source: resources/titanic.csv (csv)
+Source: resources/titanic.csv (csv) g
 Destination: output (json) overwrite
 
 + Cast(Fare -> INT)

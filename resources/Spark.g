@@ -11,8 +11,16 @@ options {
 
 @members {
 	standardizer = Standardizer()
+	errors = False
 	def getStandardizer(self):
 	    return self.standardizer
+	def errorsOccurred(self):
+	    return self.errors
+	def displayRecognitionError(self, e):
+            hdr = self.getErrorHeader(e)
+            msg = self.getErrorMessage(e)
+            self.errors = True
+            self.emitErrorMessage(hdr + " " + msg)
 }
 
 

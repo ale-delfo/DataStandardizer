@@ -21,9 +21,12 @@ parser.startRule()
 print('Parsing done.')
 
 standardizer = parser.getStandardizer()
+errors = parser.errorsOccurred()
 
-if dry_run:
-    standardizer.toString()
+if not errors:
+    if dry_run:
+        standardizer.toString()
+    else:
+        standardizer.execute()
 else:
-    standardizer.execute()
-
+    print('Errors occurred during program parsing, please check your code.')

@@ -1,4 +1,4 @@
-# $ANTLR 3.5.1 /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g 2022-04-24 16:49:21
+# $ANTLR 3.5.1 /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g 2022-04-25 22:41:59
 
 import sys
 from antlr3 import *
@@ -84,7 +84,7 @@ class SparkLexer(Lexer):
             _type = EPOCH_FORMAT
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:114:2: ( 's' | 'm' | 'u' | 'n' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:122:2: ( 's' | 'm' | 'u' | 'n' )
             # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:
             pass 
             if self.input.LA(1) in {109, 110, 115, 117}:
@@ -113,8 +113,8 @@ class SparkLexer(Lexer):
             _type = NEWLINE
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:117:9: ( '\\n' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:117:11: '\\n'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:125:9: ( '\\n' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:125:11: '\\n'
             pass 
             self.match(10)
 
@@ -135,8 +135,8 @@ class SparkLexer(Lexer):
             _type = PLUS
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:119:6: ( '+' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:119:8: '+'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:127:6: ( '+' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:127:8: '+'
             pass 
             self.match(43)
 
@@ -157,8 +157,8 @@ class SparkLexer(Lexer):
             _type = COMMA
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:121:7: ( ',' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:121:9: ','
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:129:7: ( ',' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:129:9: ','
             pass 
             self.match(44)
 
@@ -179,7 +179,7 @@ class SparkLexer(Lexer):
             _type = SORT
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:123:7: ( 'ASC' | 'DESC' | 'asc' | 'desc' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:131:7: ( 'ASC' | 'DESC' | 'asc' | 'desc' )
             alt1 = 4
             LA1 = self.input.LA(1)
             if LA1 in {65}:
@@ -197,28 +197,28 @@ class SparkLexer(Lexer):
 
 
             if alt1 == 1:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:123:9: 'ASC'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:131:9: 'ASC'
                 pass 
                 self.match("ASC")
 
 
 
             elif alt1 == 2:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:123:17: 'DESC'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:131:17: 'DESC'
                 pass 
                 self.match("DESC")
 
 
 
             elif alt1 == 3:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:123:26: 'asc'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:131:26: 'asc'
                 pass 
                 self.match("asc")
 
 
 
             elif alt1 == 4:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:123:34: 'desc'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:131:34: 'desc'
                 pass 
                 self.match("desc")
 
@@ -239,7 +239,7 @@ class SparkLexer(Lexer):
             _type = TYPE
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:125:7: ( 'INT' | 'FLOAT' | 'DOUBLE' | 'STRING' | 'LONG' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:133:7: ( 'INT' | 'FLOAT' | 'DOUBLE' | 'STRING' | 'LONG' )
             alt2 = 5
             LA2 = self.input.LA(1)
             if LA2 in {73}:
@@ -259,35 +259,35 @@ class SparkLexer(Lexer):
 
 
             if alt2 == 1:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:125:9: 'INT'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:133:9: 'INT'
                 pass 
                 self.match("INT")
 
 
 
             elif alt2 == 2:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:125:17: 'FLOAT'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:133:17: 'FLOAT'
                 pass 
                 self.match("FLOAT")
 
 
 
             elif alt2 == 3:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:125:27: 'DOUBLE'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:133:27: 'DOUBLE'
                 pass 
                 self.match("DOUBLE")
 
 
 
             elif alt2 == 4:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:125:38: 'STRING'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:133:38: 'STRING'
                 pass 
                 self.match("STRING")
 
 
 
             elif alt2 == 5:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:125:49: 'LONG'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:133:49: 'LONG'
                 pass 
                 self.match("LONG")
 
@@ -308,8 +308,8 @@ class SparkLexer(Lexer):
             _type = OVERWRITE
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:128:2: ( 'overwrite' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:128:4: 'overwrite'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:136:2: ( 'overwrite' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:136:4: 'overwrite'
             pass 
             self.match("overwrite")
 
@@ -331,8 +331,8 @@ class SparkLexer(Lexer):
             _type = OUTPUT_PARTITIONS
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:132:2: ( 'OutputPartitions' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:132:4: 'OutputPartitions'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:140:2: ( 'OutputPartitions' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:140:4: 'OutputPartitions'
             pass 
             self.match("OutputPartitions")
 
@@ -354,8 +354,8 @@ class SparkLexer(Lexer):
             _type = FROM_UNIXTIME
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:136:2: ( 'FromUnixtime' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:136:4: 'FromUnixtime'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:144:2: ( 'FromUnixtime' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:144:4: 'FromUnixtime'
             pass 
             self.match("FromUnixtime")
 
@@ -377,8 +377,8 @@ class SparkLexer(Lexer):
             _type = ORDER_BY
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:140:2: ( 'order by' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:140:4: 'order by'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:148:2: ( 'order by' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:148:4: 'order by'
             pass 
             self.match("order by")
 
@@ -400,8 +400,8 @@ class SparkLexer(Lexer):
             _type = STORE_COLUMNS
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:143:2: ( 'StoreColumns' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:143:4: 'StoreColumns'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:151:2: ( 'StoreColumns' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:151:4: 'StoreColumns'
             pass 
             self.match("StoreColumns")
 
@@ -423,8 +423,8 @@ class SparkLexer(Lexer):
             _type = RENAME_COLUMN
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:146:2: ( 'RenameColumn' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:146:4: 'RenameColumn'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:154:2: ( 'RenameColumn' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:154:4: 'RenameColumn'
             pass 
             self.match("RenameColumn")
 
@@ -446,8 +446,8 @@ class SparkLexer(Lexer):
             _type = CAST_COLUMN
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:149:2: ( 'Cast' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:149:4: 'Cast'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:157:2: ( 'Cast' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:157:4: 'Cast'
             pass 
             self.match("Cast")
 
@@ -469,8 +469,8 @@ class SparkLexer(Lexer):
             _type = CREATE_LITERAL
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:152:2: ( 'CreateLiteral' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:152:4: 'CreateLiteral'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:160:2: ( 'CreateLiteral' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:160:4: 'CreateLiteral'
             pass 
             self.match("CreateLiteral")
 
@@ -492,8 +492,8 @@ class SparkLexer(Lexer):
             _type = DEDUPLICATE
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:156:2: ( 'Deduplicate' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:156:4: 'Deduplicate'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:164:2: ( 'Deduplicate' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:164:4: 'Deduplicate'
             pass 
             self.match("Deduplicate")
 
@@ -515,8 +515,8 @@ class SparkLexer(Lexer):
             _type = CL
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:159:4: ( ':' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:159:6: ':'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:167:4: ( ':' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:167:6: ':'
             pass 
             self.match(58)
 
@@ -537,8 +537,8 @@ class SparkLexer(Lexer):
             _type = LP
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:160:4: ( '(' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:160:6: '('
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:168:4: ( '(' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:168:6: '('
             pass 
             self.match(40)
 
@@ -559,8 +559,8 @@ class SparkLexer(Lexer):
             _type = RP
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:161:4: ( ')' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:161:6: ')'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:169:4: ( ')' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:169:6: ')'
             pass 
             self.match(41)
 
@@ -581,8 +581,8 @@ class SparkLexer(Lexer):
             _type = SC
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:162:5: ( ';' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:162:7: ';'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:170:5: ( ';' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:170:7: ';'
             pass 
             self.match(59)
 
@@ -603,8 +603,8 @@ class SparkLexer(Lexer):
             _type = RIGHT_ARROW
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:165:2: ( '->' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:165:4: '->'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:173:2: ( '->' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:173:4: '->'
             pass 
             self.match("->")
 
@@ -626,7 +626,7 @@ class SparkLexer(Lexer):
             _type = FILE_FORMAT
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:168:2: ( 'parquet' | 'csv' | 'json' | 'avro' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:176:2: ( 'parquet' | 'csv' | 'json' | 'avro' )
             alt3 = 4
             LA3 = self.input.LA(1)
             if LA3 in {112}:
@@ -644,28 +644,28 @@ class SparkLexer(Lexer):
 
 
             if alt3 == 1:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:168:4: 'parquet'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:176:4: 'parquet'
                 pass 
                 self.match("parquet")
 
 
 
             elif alt3 == 2:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:169:4: 'csv'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:177:4: 'csv'
                 pass 
                 self.match("csv")
 
 
 
             elif alt3 == 3:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:170:4: 'json'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:178:4: 'json'
                 pass 
                 self.match("json")
 
 
 
             elif alt3 == 4:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:171:4: 'avro'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:179:4: 'avro'
                 pass 
                 self.match("avro")
 
@@ -686,8 +686,8 @@ class SparkLexer(Lexer):
             _type = SOURCE
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:175:8: ( 'Source' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:175:10: 'Source'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:183:8: ( 'Source' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:183:10: 'Source'
             pass 
             self.match("Source")
 
@@ -709,8 +709,8 @@ class SparkLexer(Lexer):
             _type = DESTINATION
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:178:2: ( 'Destination' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:178:4: 'Destination'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:186:2: ( 'Destination' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:186:4: 'Destination'
             pass 
             self.match("Destination")
 
@@ -732,7 +732,7 @@ class SparkLexer(Lexer):
             _type = COMMENT
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:181:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF ) | '/*' ( options {greedy=false; } : . )* '*/' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:189:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF ) | '/*' ( options {greedy=false; } : . )* '*/' )
             alt8 = 2
             LA8_0 = self.input.LA(1)
 
@@ -756,12 +756,12 @@ class SparkLexer(Lexer):
 
 
             if alt8 == 1:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:181:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:189:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF )
                 pass 
                 self.match("//")
 
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:181:14: (~ ( '\\n' | '\\r' ) )*
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:189:14: (~ ( '\\n' | '\\r' ) )*
                 while True: #loop4
                     alt4 = 2
                     LA4_0 = self.input.LA(1)
@@ -787,21 +787,21 @@ class SparkLexer(Lexer):
                         break #loop4
 
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:181:28: ( '\\r' )?
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:189:28: ( '\\r' )?
                 alt5 = 2
                 LA5_0 = self.input.LA(1)
 
                 if (LA5_0 == 13) :
                     alt5 = 1
                 if alt5 == 1:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:181:28: '\\r'
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:189:28: '\\r'
                     pass 
                     self.match(13)
 
 
 
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:181:34: ( '\\n' | EOF )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:189:34: ( '\\n' | EOF )
                 alt6 = 2
                 LA6_0 = self.input.LA(1)
 
@@ -811,13 +811,13 @@ class SparkLexer(Lexer):
                     alt6 = 2
 
                 if alt6 == 1:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:181:35: '\\n'
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:189:35: '\\n'
                     pass 
                     self.match(10)
 
 
                 elif alt6 == 2:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:181:40: EOF
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:189:40: EOF
                     pass 
                     self.match(EOF)
 
@@ -832,12 +832,12 @@ class SparkLexer(Lexer):
 
 
             elif alt8 == 2:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:182:9: '/*' ( options {greedy=false; } : . )* '*/'
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:190:9: '/*' ( options {greedy=false; } : . )* '*/'
                 pass 
                 self.match("/*")
 
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:182:14: ( options {greedy=false; } : . )*
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:190:14: ( options {greedy=false; } : . )*
                 while True: #loop7
                     alt7 = 2
                     LA7_0 = self.input.LA(1)
@@ -856,7 +856,7 @@ class SparkLexer(Lexer):
 
 
                     if alt7 == 1:
-                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:182:42: .
+                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:190:42: .
                         pass 
                         self.matchAny()
 
@@ -889,8 +889,8 @@ class SparkLexer(Lexer):
             _type = WS
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:185:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:185:9: ( ' ' | '\\t' | '\\r' | '\\n' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:193:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:193:9: ( ' ' | '\\t' | '\\r' | '\\n' )
             pass 
             if self.input.LA(1) in {9, 10, 13, 32}:
                 self.input.consume()
@@ -923,10 +923,10 @@ class SparkLexer(Lexer):
             _type = TEXT
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:193:9: ( ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+ )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:193:11: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:201:9: ( ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+ )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:201:11: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+
             pass 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:193:11: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:201:11: ( '0' .. '9' | 'a' .. 'z' | 'A' .. 'Z' | '-' | '_' | '/' | '|' | '.' )+
             cnt9 = 0
             while True: #loop9
                 alt9 = 2
@@ -976,12 +976,12 @@ class SparkLexer(Lexer):
             _type = STRING
             _channel = DEFAULT_CHANNEL
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:196:9: ( '\"' ( options {greedy=false; } : . )* '\"' )
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:196:11: '\"' ( options {greedy=false; } : . )* '\"'
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:204:9: ( '\"' ( options {greedy=false; } : . )* '\"' )
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:204:11: '\"' ( options {greedy=false; } : . )* '\"'
             pass 
             self.match(34)
 
-            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:196:15: ( options {greedy=false; } : . )*
+            # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:204:15: ( options {greedy=false; } : . )*
             while True: #loop10
                 alt10 = 2
                 LA10_0 = self.input.LA(1)
@@ -993,7 +993,7 @@ class SparkLexer(Lexer):
 
 
                 if alt10 == 1:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:196:43: .
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:204:43: .
                     pass 
                     self.matchAny()
 

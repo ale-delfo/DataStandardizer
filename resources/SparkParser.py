@@ -1,4 +1,4 @@
-# $ANTLR 3.5.1 /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g 2022-04-24 16:49:21
+# $ANTLR 3.5.1 /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g 2022-04-25 22:41:59
 
 import sys
 from antlr3 import *
@@ -86,18 +86,26 @@ class SparkParser(Parser):
 
              
     standardizer = Standardizer()
+    errors = False
     def getStandardizer(self):
         return self.standardizer
+    def errorsOccurred(self):
+        return self.errors
+    def displayRecognitionError(self, e):
+               hdr = self.getErrorHeader(e)
+               msg = self.getErrorMessage(e)
+               self.errors = True
+               self.emitErrorMessage(hdr + " " + msg)
 
 
 
     # $ANTLR start "startRule"
-    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:20:1: startRule : source_definition NEWLINE destination_definition ( NEWLINE )+ ( action )* ( NEWLINE )* EOF ;
+    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:28:1: startRule : source_definition NEWLINE destination_definition ( NEWLINE )+ ( action )* ( NEWLINE )* EOF ;
     def startRule(self, ):
         try:
             try:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:21:2: ( source_definition NEWLINE destination_definition ( NEWLINE )+ ( action )* ( NEWLINE )* EOF )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:21:4: source_definition NEWLINE destination_definition ( NEWLINE )+ ( action )* ( NEWLINE )* EOF
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:29:2: ( source_definition NEWLINE destination_definition ( NEWLINE )+ ( action )* ( NEWLINE )* EOF )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:29:4: source_definition NEWLINE destination_definition ( NEWLINE )+ ( action )* ( NEWLINE )* EOF
                 pass 
                 self._state.following.append(self.FOLLOW_source_definition_in_startRule48)
                 self.source_definition()
@@ -111,7 +119,7 @@ class SparkParser(Parser):
 
                 self._state.following.pop()
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:22:26: ( NEWLINE )+
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:30:26: ( NEWLINE )+
                 cnt1 = 0
                 while True: #loop1
                     alt1 = 2
@@ -122,7 +130,7 @@ class SparkParser(Parser):
 
 
                     if alt1 == 1:
-                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:22:26: NEWLINE
+                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:30:26: NEWLINE
                         pass 
                         self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_startRule56)
 
@@ -137,7 +145,7 @@ class SparkParser(Parser):
                     cnt1 += 1
 
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:23:3: ( action )*
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:31:3: ( action )*
                 while True: #loop2
                     alt2 = 2
                     LA2_0 = self.input.LA(1)
@@ -147,7 +155,7 @@ class SparkParser(Parser):
 
 
                     if alt2 == 1:
-                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:23:4: action
+                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:31:4: action
                         pass 
                         self._state.following.append(self.FOLLOW_action_in_startRule62)
                         self.action()
@@ -159,7 +167,7 @@ class SparkParser(Parser):
                         break #loop2
 
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:24:3: ( NEWLINE )*
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:32:3: ( NEWLINE )*
                 while True: #loop3
                     alt3 = 2
                     LA3_0 = self.input.LA(1)
@@ -169,7 +177,7 @@ class SparkParser(Parser):
 
 
                     if alt3 == 1:
-                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:24:3: NEWLINE
+                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:32:3: NEWLINE
                         pass 
                         self.match(self.input, NEWLINE, self.FOLLOW_NEWLINE_in_startRule68)
 
@@ -196,15 +204,15 @@ class SparkParser(Parser):
 
 
     # $ANTLR start "source_definition"
-    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:28:1: source_definition : SOURCE CL source= TEXT LP format= FILE_FORMAT RP ;
+    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:36:1: source_definition : SOURCE CL source= TEXT LP format= FILE_FORMAT RP ;
     def source_definition(self, ):
         source = None
         format = None
 
         try:
             try:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:29:2: ( SOURCE CL source= TEXT LP format= FILE_FORMAT RP )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:30:4: SOURCE CL source= TEXT LP format= FILE_FORMAT RP
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:37:2: ( SOURCE CL source= TEXT LP format= FILE_FORMAT RP )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:38:4: SOURCE CL source= TEXT LP format= FILE_FORMAT RP
                 pass 
                 self.match(self.input, SOURCE, self.FOLLOW_SOURCE_in_source_definition88)
 
@@ -239,7 +247,7 @@ class SparkParser(Parser):
 
 
     # $ANTLR start "destination_definition"
-    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:34:1: destination_definition : DESTINATION CL destination= TEXT LP format= FILE_FORMAT RP (overwrite= OVERWRITE )? ;
+    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:42:1: destination_definition : DESTINATION CL destination= TEXT LP format= FILE_FORMAT RP (overwrite= OVERWRITE )? ;
     def destination_definition(self, ):
         destination = None
         format = None
@@ -247,8 +255,8 @@ class SparkParser(Parser):
 
         try:
             try:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:35:2: ( DESTINATION CL destination= TEXT LP format= FILE_FORMAT RP (overwrite= OVERWRITE )? )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:36:4: DESTINATION CL destination= TEXT LP format= FILE_FORMAT RP (overwrite= OVERWRITE )?
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:43:2: ( DESTINATION CL destination= TEXT LP format= FILE_FORMAT RP (overwrite= OVERWRITE )? )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:44:4: DESTINATION CL destination= TEXT LP format= FILE_FORMAT RP (overwrite= OVERWRITE )?
                 pass 
                 self.match(self.input, DESTINATION, self.FOLLOW_DESTINATION_in_destination_definition122)
 
@@ -262,14 +270,14 @@ class SparkParser(Parser):
 
                 self.match(self.input, RP, self.FOLLOW_RP_in_destination_definition136)
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:36:70: (overwrite= OVERWRITE )?
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:44:70: (overwrite= OVERWRITE )?
                 alt4 = 2
                 LA4_0 = self.input.LA(1)
 
                 if (LA4_0 == OVERWRITE) :
                     alt4 = 1
                 if alt4 == 1:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:36:70: overwrite= OVERWRITE
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:44:70: overwrite= OVERWRITE
                     pass 
                     overwrite = self.match(self.input, OVERWRITE, self.FOLLOW_OVERWRITE_in_destination_definition140)
 
@@ -299,16 +307,16 @@ class SparkParser(Parser):
 
 
     # $ANTLR start "action"
-    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:43:1: action : PLUS ( rename_action | cast_action | create_literal_action | deduplicate_action | store_columns_action | from_unixtime_action | output_partitions_action ) ( NEWLINE | EOF ) ;
+    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:51:1: action : PLUS ( rename_action | cast_action | create_literal_action | deduplicate_action | store_columns_action | from_unixtime_action | output_partitions_action ) ( NEWLINE | EOF ) ;
     def action(self, ):
         try:
             try:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:43:9: ( PLUS ( rename_action | cast_action | create_literal_action | deduplicate_action | store_columns_action | from_unixtime_action | output_partitions_action ) ( NEWLINE | EOF ) )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:44:3: PLUS ( rename_action | cast_action | create_literal_action | deduplicate_action | store_columns_action | from_unixtime_action | output_partitions_action ) ( NEWLINE | EOF )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:51:9: ( PLUS ( rename_action | cast_action | create_literal_action | deduplicate_action | store_columns_action | from_unixtime_action | output_partitions_action ) ( NEWLINE | EOF ) )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:52:3: PLUS ( rename_action | cast_action | create_literal_action | deduplicate_action | store_columns_action | from_unixtime_action | output_partitions_action ) ( NEWLINE | EOF )
                 pass 
                 self.match(self.input, PLUS, self.FOLLOW_PLUS_in_action161)
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:45:3: ( rename_action | cast_action | create_literal_action | deduplicate_action | store_columns_action | from_unixtime_action | output_partitions_action )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:53:3: ( rename_action | cast_action | create_literal_action | deduplicate_action | store_columns_action | from_unixtime_action | output_partitions_action )
                 alt5 = 7
                 LA5 = self.input.LA(1)
                 if LA5 in {RENAME_COLUMN}:
@@ -332,7 +340,7 @@ class SparkParser(Parser):
 
 
                 if alt5 == 1:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:45:4: rename_action
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:53:4: rename_action
                     pass 
                     self._state.following.append(self.FOLLOW_rename_action_in_action166)
                     self.rename_action()
@@ -341,7 +349,7 @@ class SparkParser(Parser):
 
 
                 elif alt5 == 2:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:46:3: cast_action
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:54:3: cast_action
                     pass 
                     self._state.following.append(self.FOLLOW_cast_action_in_action172)
                     self.cast_action()
@@ -350,7 +358,7 @@ class SparkParser(Parser):
 
 
                 elif alt5 == 3:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:47:3: create_literal_action
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:55:3: create_literal_action
                     pass 
                     self._state.following.append(self.FOLLOW_create_literal_action_in_action178)
                     self.create_literal_action()
@@ -359,7 +367,7 @@ class SparkParser(Parser):
 
 
                 elif alt5 == 4:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:48:3: deduplicate_action
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:56:3: deduplicate_action
                     pass 
                     self._state.following.append(self.FOLLOW_deduplicate_action_in_action184)
                     self.deduplicate_action()
@@ -368,7 +376,7 @@ class SparkParser(Parser):
 
 
                 elif alt5 == 5:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:49:3: store_columns_action
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:57:3: store_columns_action
                     pass 
                     self._state.following.append(self.FOLLOW_store_columns_action_in_action190)
                     self.store_columns_action()
@@ -377,7 +385,7 @@ class SparkParser(Parser):
 
 
                 elif alt5 == 6:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:50:3: from_unixtime_action
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:58:3: from_unixtime_action
                     pass 
                     self._state.following.append(self.FOLLOW_from_unixtime_action_in_action196)
                     self.from_unixtime_action()
@@ -386,7 +394,7 @@ class SparkParser(Parser):
 
 
                 elif alt5 == 7:
-                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:51:3: output_partitions_action
+                    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:59:3: output_partitions_action
                     pass 
                     self._state.following.append(self.FOLLOW_output_partitions_action_in_action202)
                     self.output_partitions_action()
@@ -423,15 +431,15 @@ class SparkParser(Parser):
 
 
     # $ANTLR start "from_unixtime_action"
-    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:62:1: from_unixtime_action : FROM_UNIXTIME LP x= EPOCH_FORMAT RP LP y= TEXT RP ;
+    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:70:1: from_unixtime_action : FROM_UNIXTIME LP x= EPOCH_FORMAT RP LP y= TEXT RP ;
     def from_unixtime_action(self, ):
         x = None
         y = None
 
         try:
             try:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:63:2: ( FROM_UNIXTIME LP x= EPOCH_FORMAT RP LP y= TEXT RP )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:63:4: FROM_UNIXTIME LP x= EPOCH_FORMAT RP LP y= TEXT RP
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:71:2: ( FROM_UNIXTIME LP x= EPOCH_FORMAT RP LP y= TEXT RP )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:71:4: FROM_UNIXTIME LP x= EPOCH_FORMAT RP LP y= TEXT RP
                 pass 
                 self.match(self.input, FROM_UNIXTIME, self.FOLLOW_FROM_UNIXTIME_in_from_unixtime_action233)
 
@@ -468,22 +476,22 @@ class SparkParser(Parser):
 
 
     # $ANTLR start "output_partitions_action"
-    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:67:1: output_partitions_action : OUTPUT_PARTITIONS LP (x+= TEXT ( COMMA x+= TEXT )* ) RP ;
+    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:75:1: output_partitions_action : OUTPUT_PARTITIONS LP (x+= TEXT ( COMMA x+= TEXT )* ) RP ;
     def output_partitions_action(self, ):
         x = None
         list_x = None
 
         try:
             try:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:68:2: ( OUTPUT_PARTITIONS LP (x+= TEXT ( COMMA x+= TEXT )* ) RP )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:68:4: OUTPUT_PARTITIONS LP (x+= TEXT ( COMMA x+= TEXT )* ) RP
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:76:2: ( OUTPUT_PARTITIONS LP (x+= TEXT ( COMMA x+= TEXT )* ) RP )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:76:4: OUTPUT_PARTITIONS LP (x+= TEXT ( COMMA x+= TEXT )* ) RP
                 pass 
                 self.match(self.input, OUTPUT_PARTITIONS, self.FOLLOW_OUTPUT_PARTITIONS_in_output_partitions_action268)
 
                 self.match(self.input, LP, self.FOLLOW_LP_in_output_partitions_action270)
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:68:25: (x+= TEXT ( COMMA x+= TEXT )* )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:68:26: x+= TEXT ( COMMA x+= TEXT )*
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:76:25: (x+= TEXT ( COMMA x+= TEXT )* )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:76:26: x+= TEXT ( COMMA x+= TEXT )*
                 pass 
                 x = self.match(self.input, TEXT, self.FOLLOW_TEXT_in_output_partitions_action275)
                 if list_x is None:
@@ -491,7 +499,7 @@ class SparkParser(Parser):
                 list_x.append(x)
 
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:68:34: ( COMMA x+= TEXT )*
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:76:34: ( COMMA x+= TEXT )*
                 while True: #loop6
                     alt6 = 2
                     LA6_0 = self.input.LA(1)
@@ -501,7 +509,7 @@ class SparkParser(Parser):
 
 
                     if alt6 == 1:
-                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:68:35: COMMA x+= TEXT
+                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:76:35: COMMA x+= TEXT
                         pass 
                         self.match(self.input, COMMA, self.FOLLOW_COMMA_in_output_partitions_action278)
 
@@ -545,22 +553,22 @@ class SparkParser(Parser):
 
 
     # $ANTLR start "store_columns_action"
-    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:75:1: store_columns_action : STORE_COLUMNS LP (x+= TEXT ( COMMA x+= TEXT )* ) RP ;
+    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:83:1: store_columns_action : STORE_COLUMNS LP (x+= TEXT ( COMMA x+= TEXT )* ) RP ;
     def store_columns_action(self, ):
         x = None
         list_x = None
 
         try:
             try:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:76:2: ( STORE_COLUMNS LP (x+= TEXT ( COMMA x+= TEXT )* ) RP )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:76:4: STORE_COLUMNS LP (x+= TEXT ( COMMA x+= TEXT )* ) RP
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:84:2: ( STORE_COLUMNS LP (x+= TEXT ( COMMA x+= TEXT )* ) RP )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:84:4: STORE_COLUMNS LP (x+= TEXT ( COMMA x+= TEXT )* ) RP
                 pass 
                 self.match(self.input, STORE_COLUMNS, self.FOLLOW_STORE_COLUMNS_in_store_columns_action303)
 
                 self.match(self.input, LP, self.FOLLOW_LP_in_store_columns_action305)
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:76:21: (x+= TEXT ( COMMA x+= TEXT )* )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:76:22: x+= TEXT ( COMMA x+= TEXT )*
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:84:21: (x+= TEXT ( COMMA x+= TEXT )* )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:84:22: x+= TEXT ( COMMA x+= TEXT )*
                 pass 
                 x = self.match(self.input, TEXT, self.FOLLOW_TEXT_in_store_columns_action310)
                 if list_x is None:
@@ -568,7 +576,7 @@ class SparkParser(Parser):
                 list_x.append(x)
 
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:76:30: ( COMMA x+= TEXT )*
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:84:30: ( COMMA x+= TEXT )*
                 while True: #loop7
                     alt7 = 2
                     LA7_0 = self.input.LA(1)
@@ -578,7 +586,7 @@ class SparkParser(Parser):
 
 
                     if alt7 == 1:
-                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:76:31: COMMA x+= TEXT
+                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:84:31: COMMA x+= TEXT
                         pass 
                         self.match(self.input, COMMA, self.FOLLOW_COMMA_in_store_columns_action313)
 
@@ -622,15 +630,15 @@ class SparkParser(Parser):
 
 
     # $ANTLR start "cast_action"
-    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:83:1: cast_action : CAST_COLUMN LP x= TEXT RIGHT_ARROW y= TYPE RP ;
+    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:91:1: cast_action : CAST_COLUMN LP x= TEXT RIGHT_ARROW y= TYPE RP ;
     def cast_action(self, ):
         x = None
         y = None
 
         try:
             try:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:84:2: ( CAST_COLUMN LP x= TEXT RIGHT_ARROW y= TYPE RP )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:85:2: CAST_COLUMN LP x= TEXT RIGHT_ARROW y= TYPE RP
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:92:2: ( CAST_COLUMN LP x= TEXT RIGHT_ARROW y= TYPE RP )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:93:2: CAST_COLUMN LP x= TEXT RIGHT_ARROW y= TYPE RP
                 pass 
                 self.match(self.input, CAST_COLUMN, self.FOLLOW_CAST_COLUMN_in_cast_action339)
 
@@ -665,15 +673,15 @@ class SparkParser(Parser):
 
 
     # $ANTLR start "create_literal_action"
-    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:89:1: create_literal_action : CREATE_LITERAL LP x= TEXT RP LP y= STRING RP ;
+    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:97:1: create_literal_action : CREATE_LITERAL LP x= TEXT RP LP y= STRING RP ;
     def create_literal_action(self, ):
         x = None
         y = None
 
         try:
             try:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:90:2: ( CREATE_LITERAL LP x= TEXT RP LP y= STRING RP )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:91:2: CREATE_LITERAL LP x= TEXT RP LP y= STRING RP
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:98:2: ( CREATE_LITERAL LP x= TEXT RP LP y= STRING RP )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:99:2: CREATE_LITERAL LP x= TEXT RP LP y= STRING RP
                 pass 
                 self.match(self.input, CREATE_LITERAL, self.FOLLOW_CREATE_LITERAL_in_create_literal_action370)
 
@@ -710,7 +718,7 @@ class SparkParser(Parser):
 
 
     # $ANTLR start "deduplicate_action"
-    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:95:1: deduplicate_action : DEDUPLICATE LP (x+= TEXT ( COMMA x+= TEXT )* ) RP ORDER_BY y= TEXT z= SORT ;
+    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:103:1: deduplicate_action : DEDUPLICATE LP (x+= TEXT ( COMMA x+= TEXT )* ) RP ORDER_BY y= TEXT z= SORT ;
     def deduplicate_action(self, ):
         y = None
         z = None
@@ -719,15 +727,15 @@ class SparkParser(Parser):
 
         try:
             try:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:96:2: ( DEDUPLICATE LP (x+= TEXT ( COMMA x+= TEXT )* ) RP ORDER_BY y= TEXT z= SORT )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:97:2: DEDUPLICATE LP (x+= TEXT ( COMMA x+= TEXT )* ) RP ORDER_BY y= TEXT z= SORT
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:104:2: ( DEDUPLICATE LP (x+= TEXT ( COMMA x+= TEXT )* ) RP ORDER_BY y= TEXT z= SORT )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:105:2: DEDUPLICATE LP (x+= TEXT ( COMMA x+= TEXT )* ) RP ORDER_BY y= TEXT z= SORT
                 pass 
                 self.match(self.input, DEDUPLICATE, self.FOLLOW_DEDUPLICATE_in_deduplicate_action402)
 
                 self.match(self.input, LP, self.FOLLOW_LP_in_deduplicate_action404)
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:97:17: (x+= TEXT ( COMMA x+= TEXT )* )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:97:18: x+= TEXT ( COMMA x+= TEXT )*
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:105:17: (x+= TEXT ( COMMA x+= TEXT )* )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:105:18: x+= TEXT ( COMMA x+= TEXT )*
                 pass 
                 x = self.match(self.input, TEXT, self.FOLLOW_TEXT_in_deduplicate_action409)
                 if list_x is None:
@@ -735,7 +743,7 @@ class SparkParser(Parser):
                 list_x.append(x)
 
 
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:97:26: ( COMMA x+= TEXT )*
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:105:26: ( COMMA x+= TEXT )*
                 while True: #loop8
                     alt8 = 2
                     LA8_0 = self.input.LA(1)
@@ -745,7 +753,7 @@ class SparkParser(Parser):
 
 
                     if alt8 == 1:
-                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:97:27: COMMA x+= TEXT
+                        # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:105:27: COMMA x+= TEXT
                         pass 
                         self.match(self.input, COMMA, self.FOLLOW_COMMA_in_deduplicate_action412)
 
@@ -795,15 +803,15 @@ class SparkParser(Parser):
 
 
     # $ANTLR start "rename_action"
-    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:105:1: rename_action : RENAME_COLUMN LP x= TEXT RIGHT_ARROW y= TEXT RP ;
+    # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:113:1: rename_action : RENAME_COLUMN LP x= TEXT RIGHT_ARROW y= TEXT RP ;
     def rename_action(self, ):
         x = None
         y = None
 
         try:
             try:
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:106:2: ( RENAME_COLUMN LP x= TEXT RIGHT_ARROW y= TEXT RP )
-                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:107:2: RENAME_COLUMN LP x= TEXT RIGHT_ARROW y= TEXT RP
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:114:2: ( RENAME_COLUMN LP x= TEXT RIGHT_ARROW y= TEXT RP )
+                # /Users/alessandro/Universita/LFC-progetto/DataStandardizer/resources/Spark.g:115:2: RENAME_COLUMN LP x= TEXT RIGHT_ARROW y= TEXT RP
                 pass 
                 self.match(self.input, RENAME_COLUMN, self.FOLLOW_RENAME_COLUMN_in_rename_action449)
 
