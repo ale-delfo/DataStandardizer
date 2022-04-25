@@ -19,7 +19,7 @@ options {
 // Specifica del parser
 startRule
 	:	source_definition NEWLINE
-		(destination_definition) NEWLINE+
+		destination_definition NEWLINE+
 		(action)*
 		NEWLINE*
 		EOF
@@ -50,7 +50,7 @@ action 	:
 		from_unixtime_action |
 		output_partitions_action 
 		)
-		NEWLINE
+		(NEWLINE|EOF)
 	;
 	
 
