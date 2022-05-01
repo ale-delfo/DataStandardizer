@@ -62,11 +62,6 @@ action 	:
 	;
 	
 
-//sort_output_action
-//	:	SORT_OUTPUT LP TEXT RP ORDER_BY y=TEXT z=SORT
-//		{}
-//	;
-
 from_unixtime_action
 	:	FROM_UNIXTIME LP x=EPOCH_FORMAT RP LP y=TEXT RP  
 		{self.standardizer.addAction(self.standardizer.fromUnixtime,$x.text,$y.text)}
@@ -202,3 +197,5 @@ TEXT    :	('0'..'9'|'a'..'z'|'A'..'Z'|'-'|'_'|'/'|'|'|'.')+
         ;
     
 STRING 	:	'"' ( options {greedy=false;} : . )* '"' ;
+
+UNRECOGNIZED_TOKEN	:	.;

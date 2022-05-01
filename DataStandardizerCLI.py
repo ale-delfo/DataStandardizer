@@ -29,4 +29,4 @@ if not errors:
     else:
         standardizer.execute()
 else:
-    print('Errors occurred during program parsing, please check your code.')
+    print('Errors occurred during program parsing, please check your code and the above error message(s).')

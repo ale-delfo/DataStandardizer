@@ -1,7 +1,7 @@
 from antlr3 import *
 import SparkLexer as t
 
-lexer = t.SparkLexer(ANTLRFileStream('resources/firstProgram.dtsd'))
+lexer = t.SparkLexer(ANTLRFileStream('resources/firstProgram.dsl'))
 i = 1
 
 while (token:=lexer.nextToken()).getType() != t.EOF:
